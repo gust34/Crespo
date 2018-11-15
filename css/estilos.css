@@ -1,0 +1,44 @@
+.cabecalho {
+  padding-top: 8px; /*ajuste de altura do cabeçalho*/
+}
+
+
+.logo{
+  padding-left: 20px; /*ajuste de posição do logo*/
+}
+
+.navbar {
+  padding-right: 20px; /*ajuste de posição do nav*/
+}
+
+.navbar a{
+  color: black;
+  border-bottom: 4px solid #ffffff; /*Cor do link e borda "invisível" para não ocorrer desalinhamento no momento do hover */
+}
+
+nav#conteudo.navbar a{
+  color: black;
+  border-bottom: 4px solid #eeeeee; /*Cor do link e borda "invisível" para não ocorrer desalinhamento no momento do hover (Nav de Conteúdo) */
+}
+
+nav#conteudo.navbar a:hover{
+  color: black;
+  border-bottom: 4px solid #fcf52f;    /*Responsável pela borda embaixo do link */
+}
+
+.navbar a:hover {
+  color: black;
+  border-bottom: 4px solid #fcf52f;    /*Responsável pela borda embaixo do link */
+}
+
+.rodape {
+  background: #dcdcdc; /*Background do Endereço/Contato/Localização*/
+}
+
+.rodape-baixo{
+  background: #d4d2d3; /*Background do final do rodapé*/
+}
+
+.Corpo{
+  background: #eeeeee;  /*Background da área de conteúdo*/
+}
