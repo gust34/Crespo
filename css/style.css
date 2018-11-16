@@ -27,9 +27,31 @@ html, body {
     width: 90px;
 }
 
-.menu {
-    display: flex;
-    flex-direction: row;
+@media only screen and (max-width: 1023px) {
+    .menu {
+        display: block;
+        position: absolute;
+        width: 300px;
+        right: 0;
+        background: white;
+        transform: translateX(100%);
+        top: 4em;
+        transition-duration: 0.5s;
+    }
+    i.fas.fa-bars {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .menu {
+        transform: translateX(0);
+        display: flex;
+        flex-direction: row;
+    }
+    i.fas.fa-bars {
+        display: none !important;
+    }
 }
 
 .menu > a {
@@ -68,7 +90,7 @@ html, body {
     width: 100%;
     position: relative;
     justify-content: center;
-    top: 350px;
+    top: 323px;
 }
 
 .cristo {
@@ -124,7 +146,7 @@ html, body {
 
 .sobre1{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     width: 80%;
@@ -133,7 +155,7 @@ html, body {
 }
 .imagem {
     background-color: #dcdcdc;
-    width: 400px;
+    width: 100%;
     height: 250px;
 }
 
@@ -142,14 +164,14 @@ html, body {
     text-align: justify;
     flex-grow: 1;
     padding: 20px;
-    width: 350px;
+    width: 100%;
     height: 100%;
     justify-content: center;
 }
 
 .sobre2 {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
@@ -163,13 +185,30 @@ html, body {
     text-align: justify;
     flex-grow: 1;
     padding: 20px;
-    width: 350px;
+    width: 100%;
     height: 100%;
     justify-content: center;
 }
 
+@media only screen and (min-width: 1024px) {
+    .sobre1 {
+        flex-direction: row;
+    }
+    .sobre2 {
+        flex-direction: row-reverse;
+    }
+    .sobre1 p,
+    .sobre2 p {
+        width: 350px;
+    }
+    .imagem {
+        width: 400px;
+    }
+}
+
 .sobre > h1 {
     font-weight: 700;
+    font-size: 1.5em;
 }
 
 .equipe {
@@ -196,18 +235,26 @@ html, body {
     position: absolute;
 }
 
+@media only screen and (max-width: 1023px) {
+    .barra {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .barra {
+        flex-direction: row;
+    }
+}
 .barra {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 20px;
     position: relative;
 }
-
 .barra-busca {
-    display: flex;
-
+    display: block;
 }
 
 .tipo {
@@ -242,19 +289,30 @@ html, body {
 
 .imoveis-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
 
+
 .imovel {
     display: flex;
     flex-direction: column;
-    width: calc((100% / 12) * 4 - 2em);
+    width: calc(100% - 2em);
     justify-content: flex-start;
     z-index: 20;
-    margin: 0 1em;
+    margin: 0.5em 1em;
+}
+
+@media only screen and (min-width: 1024px) {
+    .imovel {
+        width: calc((100% / 12) * 4 - 2em);
+        margin: 0 1em;
+    }
+    .imoveis-row {
+        flex-direction: row;
+    }
 }
 .objectImage {
     width: 350px;
@@ -272,40 +330,40 @@ html, body {
     height: 400px;
     content: '';
     z-index: 9;
-}*/
+    }*/
 
-.detalhes {
-    display: flex;
-    flex-direction: row;
-    background-color: #eeeeee;
-    width: 100%;
-    height: 50px;
-    align-items: flex-start;
-}
-.detalhes span {
-    font-size: 0.8em;
-    width: calc((100% / 12) * 4);
-    text-align: center;
-    line-height: 20px;
-    margin-top: 5px;
-}
+    .detalhes {
+        display: flex;
+        flex-direction: row;
+        background-color: #eeeeee;
+        width: 100%;
+        height: 50px;
+        align-items: flex-start;
+    }
+    .detalhes span {
+        font-size: 0.8em;
+        width: calc((100% / 12) * 4);
+        text-align: center;
+        line-height: 20px;
+        margin-top: 5px;
+    }
 
-.imovel .valor {
-    width: calc((100% / 12) * 9);
-    margin-left: calc((100% / 12) * 3);
-    margin-top: -4em;
-    margin-bottom: 2em;
-    padding-right: 1em;
-    text-align: right;
-    line-height: 2em;
-    background: #e1e81f;
-}
+    .imovel .valor {
+        width: calc((100% / 12) * 9);
+        margin-left: calc((100% / 12) * 3);
+        margin-top: -4em;
+        margin-bottom: 2em;
+        padding-right: 1em;
+        text-align: right;
+        line-height: 2em;
+        background: #e1e81f;
+    }
 
-.imovel > h1 {
-    margin-bottom: -2em;
-    margin-left: 0.7em;
-    line-height: 2em;
-    z-index: 1000;
-    color: white;
-    font-size: 1.5em;
-}
+    .imovel > h1 {
+        margin-bottom: -2em;
+        margin-left: 0.7em;
+        line-height: 2em;
+        z-index: 1000;
+        color: white;
+        font-size: 1.5em;
+    }
