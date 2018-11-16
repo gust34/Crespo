@@ -13,7 +13,8 @@
     <div class="section">
         <div class="header">
             <img src="img/logo.png" class="logo">
-            <div class="menu">
+            <i class="fas fa-bars fa-2x" id="open_menu_mobile" onclick="openMenuMobile()"></i>
+            <div class="menu row" id="menu_mobile">
                 <a class="nav-link" href="index.html">HOME</a>
                 <a class="nav-link" href="#">IMÓVEIS</a>
                 <a class="nav-link" href="#">QUEM SOMOS</a>
@@ -34,7 +35,7 @@
             <div class="categorias">
             </div>
             <div class="barra">
-                <div class="col-sm-5 p-0">
+                <div>
                     <select class="tipo form-control">
                         <option value="" selected disabled> Tipo </option>
                         <option value="">Casa</option>
@@ -44,7 +45,7 @@
                         <option value="">Kitnet</option>
                     </select>
                 </div>
-                <div class="col-sm-10 p-0">
+                <div>
                     <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="#"></input>
                 </div>
             </div>
@@ -95,7 +96,7 @@
         </div>
     </div>
 
-    <div class="section sobrenos">
+    <div class="section sobrenos" id="sobrenos">
         <div class="sobre">
             <h1> A PRIMEIRA INCORPORADORA DE TRÊS LAGOAS! </h1>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus et lacus at volutpat. Curabitur congue arcu orci, ac viverra tellus hendrerit in. Quisque vel arcu sit amet nisi porttitor semper et sit amet massa. Phasellus nec pulvinar ligula. Donec sit amet nisl nunc. </p>
@@ -163,5 +164,6 @@
         </div>
        <!--Fim do Rodapé-->
    </div>
+   <script type="text/javascript" src="js/actions.js"></script>
 </body>
 </html>

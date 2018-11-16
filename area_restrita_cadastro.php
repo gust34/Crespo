@@ -2,8 +2,8 @@
 	<html>
 		<head>
 		<?php
-        session_start();
-    ?>
+            session_start();
+        ?>
 			<title> Área Restrita </title>
 			<link rel="Stylesheet" href="css/bootstrap.min.css">
 			<link rel="Stylesheet" href="css/style_restricted_area.css">

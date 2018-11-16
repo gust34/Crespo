@@ -4,8 +4,8 @@
 	<?php
         session_start();
     ?>
-     <meta charset="UTF-8">
-     <title> Login </title>
+    <meta charset="UTF-8">
+    <title> Login </title>
     </head>
 	
       <body>
@@ -19,15 +19,15 @@
     <br><br>
     <input type="submit" value="login"><br>
 	<h1 style="color:red">
-                    <?php
-                        if (isset($_SESSION['ErroLogin']))
-                        {
-                            echo $_SESSION['ErroLogin'];
-                            unset ($_SESSION['ErroLogin']);							
-                        }
-                    ?>
+    <?php
+        if (isset($_SESSION['ErroLogin']))
+        {
+            echo $_SESSION['ErroLogin'];
+            unset ($_SESSION['ErroLogin']);							
+        }
+    ?>
     </h1>
 	
 	</form>
-       </body>
+</body>
 </html>
