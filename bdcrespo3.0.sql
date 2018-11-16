@@ -17,15 +17,15 @@ categoria varchar (30) not null,
 bairro varchar (30) not null,
 qsuite int null,
 qquarto int not null,
-areatotal decimal(7,2) not null,
-areaconstruida decimal(7,2) not null,
+areatotal float not null,
+areaconstruida float not null,
 qreformas int not null,
 qvaga int not null,
 qbanheiro int not null,
 crad varchar (3) not null,
 cond varchar (50) null,
-cad1 varchar (30) null,
-cad2 varchar (30) null,
+cad1 varchar (30) not null,
+cad2 varchar (30) not null,
 cad3 varchar (30) null,
 cad4 varchar (30) null,
 cad5 varchar (30) null,
@@ -35,7 +35,15 @@ cad8 varchar (30) null,
 cad9 varchar (30) null,
 cad10 varchar (30) null,
 descricao varchar (200) null,
-foto longblob null,
+PrecoDeVenda decimal(9,2) NOT NULL,
+PrecoDeAluguel decimal(9,2) NOT NULL,
+home boolean not null
+);
+
+CREATE TABLE FotoIm(
+Cod_Im INT PRIMARY KEY,
+FOREIGN KEY (Cod_Im) REFERENCES Imoveis(Cod_Im),
+foto longblob not null,
 foto2 longblob null,
 foto3 longblob null,
 foto4 longblob null,
@@ -44,11 +52,7 @@ foto6 longblob null,
 foto7 longblob null,
 foto8 longblob null,
 foto9 longblob null,
-foto10 longblob null,
-PrecoDeVenda decimal(9,2) NOT NULL,
-PrecoDeAluguel decimal(9,2) NOT NULL,
-home boolean not null
-);
+foto10 longblob null);
 
 
 INSERT INTO `bdcrespo`.`login` ( `user`, `senha`) VALUES ('teste', 'teste123');

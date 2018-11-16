@@ -52,80 +52,45 @@
 
         <div class="imoveis-destaque">
             <div class="imoveis-row">
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
+            <?php
+            session_start();
+            include "Conexao.php";
+            $sql = $conexao->prepare("SELECT * FROM imoveis WHERE home='1' LIMIT 6");
+            $sql->execute();
+            $resultado = $sql->get_result();
+            while($linha = $resultado->fetch_assoc()){
+                if(empty($linha['PrecoDeVenda']))
+                        {
+                echo "<div class='imovel'>
+                    <h1>".$linha['bairro']."</h1>
+                    <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
+                    <span class='valor'>
+                        ALUGUEL ". $linha['PrecoDeAluguel']."
                     </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
+                    <div class='detalhes'>
+                        <span>Dormitorios <br>".$linha['qquarto']."</span>
+                        <span>Banheiros <br>".$linha['qbanheiro']."</span>
+                        <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
                     </div>
-                </div>
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
+                </div>";
+            }
+            else
+            {
+                echo "<div class='imovel'>
+                    <h1>".$linha['bairro']."</h1>
+                    <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
+                    <span class='valor'>
+                        VENDA ". $linha['PrecoDeVenda']."
                     </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
+                    <div class='detalhes'>
+                        <span>Dormitorios <br>".$linha['qquarto']."</span>
+                        <span>Banheiros <br>".$linha['qbanheiro']."</span>
+                        <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
                     </div>
-                </div>
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
-                    </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
-                    </div>
-                </div>
-            </div>
-            <div class="imoveis-row">
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
-                    </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
-                    </div>
-                </div>
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
-                    </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
-                    </div>
-                </div>
-                <div class="imovel">
-                    <h1>Colinos</h1>
-                    <img src="img/thumb.php?src=casateste.jpg&size=300x200">
-                    <span class="valor">
-                        VENDA R$240,00
-                    </span>
-                    <div class="detalhes">
-                        <span>Dormitorios <br> 3</span>
-                        <span>Banheiros <br> 2</span>
-                        <span>Área <br> 300m<sup>2</sup></span>
-                    </div>
-                </div>
+                </div>";
+            } 
+        }
+            ?>
             </div>
         </div>
     </div>
