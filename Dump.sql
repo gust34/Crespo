@@ -21,9 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `crespo`
 --
-DROP DATABASE IF EXISTS `crespo`;
-CREATE DATABASE IF NOT EXISTS `crespo` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `crespo`;
+DROP DATABASE IF EXISTS `bdcrespo`;
+CREATE DATABASE IF NOT EXISTS `bdcrespo` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bdcrespo`;
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ INSERT INTO `adm` (`User`, `Senha`) VALUES
 -- Criação: 01-Nov-2018 às 18:44
 --
 
-CREATE TABLE `imóveis` (
+CREATE TABLE `imoveis` (
   `Cod_Im` int(11) NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `PrecoDeVenda` decimal(15,2) NOT NULL,
@@ -100,7 +100,7 @@ ALTER TABLE `adm`
 --
 -- Indexes for table `imóveis`
 --
-ALTER TABLE `imóveis`
+ALTER TABLE `imoveis`
   ADD PRIMARY KEY (`Cod_Im`);
 
 --
@@ -110,7 +110,7 @@ ALTER TABLE `imóveis`
 --
 -- AUTO_INCREMENT for table `imóveis`
 --
-ALTER TABLE `imóveis`
+ALTER TABLE `imoveis`
   MODIFY `Cod_Im` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

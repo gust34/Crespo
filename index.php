@@ -53,45 +53,47 @@
 
         <div class="imoveis-destaque">
             <div class="imoveis-row">
-            <?php
-            session_start();
-            include "Conexao.php";
-            $sql = $conexao->prepare("SELECT * FROM imoveis WHERE home='1' LIMIT 6");
-            $sql->execute();
-            $resultado = $sql->get_result();
-            while($linha = $resultado->fetch_assoc()){
-                if(empty($linha['PrecoDeVenda']))
-                        {
-                echo "<div class='imovel'>
-                    <h1>".$linha['bairro']."</h1>
-                    <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
-                    <span class='valor'>
-                        ALUGUEL ". $linha['PrecoDeAluguel']."
-                    </span>
-                    <div class='detalhes'>
-                        <span>Dormitorios <br>".$linha['qquarto']."</span>
-                        <span>Banheiros <br>".$linha['qbanheiro']."</span>
-                        <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
-                    </div>
-                </div>";
-            }
-            else
-            {
-                echo "<div class='imovel'>
-                    <h1>".$linha['bairro']."</h1>
-                    <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
-                    <span class='valor'>
-                        VENDA ". $linha['PrecoDeVenda']."
-                    </span>
-                    <div class='detalhes'>
-                        <span>Dormitorios <br>".$linha['qquarto']."</span>
-                        <span>Banheiros <br>".$linha['qbanheiro']."</span>
-                        <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
-                    </div>
-                </div>";
-            } 
-        }
-            ?>
+                <?php
+                session_start();
+                include "Conexao.php";
+                $sql = $conexao->prepare("SELECT * FROM imoveis WHERE home='1' LIMIT 6");
+                var_dump($sql);
+                $sql->execute();
+                $resultado = $sql->get_result();
+
+                while($linha = $resultado->fetch_assoc()){
+
+                    if(empty($linha['PrecoDeVenda'])) {
+                        echo "
+                        <div class='imovel'>
+                            <h1>".$linha['bairro']."</h1>
+                            <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
+                            <span class='valor'>
+                                ALUGUEL ". $linha['PrecoDeAluguel']."
+                            </span>
+                            <div class='detalhes'>
+                                <span>Dormitorios <br>".$linha['qquarto']."</span>
+                                <span>Banheiros <br>".$linha['qbanheiro']."</span>
+                                <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
+                            </div>
+                        </div>";
+                    } else {
+                        echo "
+                        <div class='imovel'>
+                            <h1>".$linha['bairro']."</h1>
+                            <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
+                            <span class='valor'>
+                                VENDA ". $linha['PrecoDeVenda']."
+                            </span>
+                            <div class='detalhes'>
+                                <span>Dormitorios <br>".$linha['qquarto']."</span>
+                                <span>Banheiros <br>".$linha['qbanheiro']."</span>
+                                <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
+                            </div>
+                        </div>";
+                    } 
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -122,7 +124,7 @@
                <h1> cargo </h1> -->
            </div>
        </div>
-    </div>
+   </div>
 
    <div class="section contato">
    </div>
@@ -145,23 +147,23 @@
                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
            </div>
        </div> -->
-        <div class="row justify-content-center">
-            <div>
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <!-- Funcionamento -->
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-            </div>
-        </div>
+       <div class="row justify-content-center">
+           <div>
+               <img src="img/logo.png" class="logo-rodape">
+           </div>
+       </div>
+       <div class="row justify-content-center">
+           <div>
+               <!-- Funcionamento -->
+               <span class="ml-4"> Horário de Funcionamento </span><br>
+               <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
+           </div>
+       </div>
+       <div class="row justify-content-center">
+           <div>
+               <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
+           </div>
+       </div>
        <!--Fim do Rodapé-->
    </div>
    <script type="text/javascript" src="js/actions.js"></script>
