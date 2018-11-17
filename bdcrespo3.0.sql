@@ -1,4 +1,4 @@
-drop database bdcrespo;
+drop database if exists bdcrespo;
 
 create database bdcrespo;
 
