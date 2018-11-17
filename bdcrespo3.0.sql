@@ -57,8 +57,10 @@ foto10 longblob null);
 
 INSERT INTO `bdcrespo`.`login` ( `user`, `senha`) VALUES ('teste', 'teste123');
 
-INSERT INTO `bdcrespo`.`imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qquarto`, `areatotal`, `areaconstruida`, `qvaga`, `qbanheiro`, `qsuite`, `crad`, `descricao`, `foto`, `PrecoDeVenda`, `PrecoDeAluguel`, `home`, `qreformas`) VALUES ('1', 'Casa', 'Apartamento', 'Compra', 'Rochdale', '2', '3 m', '2 m', '3', '2', '1', 'Não', 'Casa topzera', 'Sei lá', 'R$12', 'R$6', ' ','0');
-
+INSERT INTO `bdcrespo`.`imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qquarto`, `areatotal`, `areaconstruida`, `qvaga`, `qbanheiro`, `qsuite`, `crad`, `descricao`, `PrecoDeVenda`, `PrecoDeAluguel`, `home`, `qreformas`) VALUES ('1', 'Casa', 'Apartamento', 'Compra', 'Rochdale', '2', '3 m', '2 m', '3', '2', '1', 'Não', 'Casa topzera', '12', '6','','1');
+INSERT INTO `bdcrespo`.`imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qquarto`, `areatotal`, `areaconstruida`, `qvaga`, `qbanheiro`, `qsuite`, `crad`, `descricao`, `PrecoDeVenda`, `PrecoDeAluguel`, `home`, `qreformas`) VALUES ('2', 'Casa', 'Apartamento', 'Compra', 'Rochdale', '2', '3 m', '2 m', '3', '2', '1', 'Não', 'Casa topzera', '12', '6','','1');
+INSERT INTO `bdcrespo`.`imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qquarto`, `areatotal`, `areaconstruida`, `qvaga`, `qbanheiro`, `qsuite`, `crad`, `descricao`, `PrecoDeVenda`, `PrecoDeAluguel`, `home`, `qreformas`) VALUES ('3', 'Casa', 'Apartamento', 'Compra', 'Rochdale', '2', '3 m', '2 m', '3', '2', '1', 'Não', 'Casa topzera', '12', '6','','1');
+INSERT INTO `bdcrespo`.`imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qquarto`, `areatotal`, `areaconstruida`, `qvaga`, `qbanheiro`, `qsuite`, `crad`, `descricao`, `PrecoDeVenda`, `PrecoDeAluguel`, `home`, `qreformas`) VALUES ('4', 'Casa', 'Apartamento', 'Compra', 'Rochdale', '2', '3 m', '2 m', '3', '2', '1', 'Não', 'Casa topzera', '12', '6','','1');
 
 select * from login;
 select * from imoveis;
