@@ -98,9 +98,36 @@ INSERT INTO `imoveis` (`Cod_Im`, `nome`, `tipo`, `categoria`, `bairro`, `qsuite`
 -- Estrutura da tabela `login`
 --
 
+<<<<<<< HEAD
 CREATE TABLE `login` (
   `user` varchar(30) NOT NULL,
   `senha` varchar(30) NOT NULL
+=======
+CREATE TABLE `imoveis` (
+  `Cod_Im` int(11) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `PrecoDeVenda` decimal(15,2) NOT NULL,
+  `PrecoDeAluguel` decimal(15,2) NOT NULL,
+  `PrecoUnitario` decimal(15,2) NOT NULL,
+  `Tipo` varchar(20) NOT NULL,
+  `Rua` varchar(100) NOT NULL,
+  `N` int(11) NOT NULL,
+  `Compl` varchar(300) DEFAULT NULL,
+  `Bairro` varchar(100) NOT NULL,
+  `Cidade` varchar(100) NOT NULL,
+  `Estado` varchar(100) NOT NULL,
+  `QVaga` int(11) NOT NULL,
+  `QDormitorio` int(11) NOT NULL,
+  `QSuite` int(11) NOT NULL,
+  `QBanheiro` int(11) NOT NULL,
+  `QReformas` int(11) NOT NULL,
+  `AreaConstruida` float NOT NULL,
+  `AreaReformada` float NOT NULL,
+  `AreaUtil` float NOT NULL,
+  `Caracteristicas` varchar(300) DEFAULT NULL,
+  `Sobre` varchar(400) DEFAULT NULL,
+  `CondFec` varchar(100) DEFAULT NULL
+>>>>>>> 2c876dc485b8ba8afc523ee923fb9e454ed30dcf
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -149,8 +176,13 @@ ALTER TABLE `imoveis`
 --
 -- Limitadores para a tabela `fotoim`
 --
+<<<<<<< HEAD
 ALTER TABLE `fotoim`
   ADD CONSTRAINT `fotoim_ibfk_1` FOREIGN KEY (`Cod_Im`) REFERENCES `imoveis` (`Cod_Im`);
+=======
+ALTER TABLE `imoveis`
+  MODIFY `Cod_Im` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> 2c876dc485b8ba8afc523ee923fb9e454ed30dcf
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

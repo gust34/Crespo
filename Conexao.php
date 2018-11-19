@@ -12,8 +12,7 @@ $bdbanco = 'bdcrespo';
 $conexao = mysqli_connect($bdservidor, $bdusuario, $bdsenha, $bdbanco);
 
 //Teste de conexão
-if (mysqli_connect_errno($conexao))
-{
+if (mysqli_connect_errno($conexao)) {
 	echo "Problemas ao conectar! Verifique a conexão.";
 	die();		
 }
