@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!--Top bar- ->
+    <!--Top bar-->
         
 		<div class="section">
           <div class="header">
