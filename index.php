@@ -61,7 +61,7 @@
                 $sql->execute();
                 $resultado = $sql->get_result();
 
-                while($linha = $resultado->fetch_assoc()){
+                while($linha = $resultado->fetch_assoc()) {
 
                     if(empty($linha['PrecoDeVenda'])) {
                         echo "
