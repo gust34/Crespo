@@ -1,8 +1,8 @@
 <?php
-  session_start();
+session_start();
 
 
-  include_once("Conexao.php");
+include_once 'Conexao.php';
 
 //Variaveis com as Informações do formulario
 
@@ -32,36 +32,80 @@ $cad10 = mysqli_real_escape_string($conexao,$_POST['cad10']);
 $descricao = mysqli_real_escape_string($conexao,$_POST['descricao']);
 $foto = $_FILES['imagem']['tmp_name'];
 $fototamanho = $_FILES['imagem']['size'];
-  
-  // passar os parametros e arrumar o banco
-  // comando
 
-  if ( $foto != "none" )
-  {
-      $fp = fopen($foto, "rb");
-      $conteudo = fread($fp, $fototamanho);
-      $conteudo = addslashes($conteudo);
-      fclose($fp);
-  }
-  
-  
-  $comando = "insert into imoveis(nome, tipo, categoria, bairro, qquarto, qsuite, areatotal, areaconstruida, qvaga, qreformas, qbanheiro, crad, cond, cad1, cad2, cad3, cad4, cad5, cad6, cad7, cad8, cad9, cad10, descricao, foto) VALUES ('$nome', '$tipo', '$categoria', '$bairro', '$qsuite', '$qquarto', '$areatotal', '$areaconstruida', '$qvaga', '$qreformas', '$qbanheiro', '$crad', '$cond', '$cad1', '$cad2', '$cad3', '$cad4', '$cad5', '$cad6', '$cad7', '$cad8', '$cad9', '$cad10', '$descricao', '$foto')";
+// passar os parametros e arrumar o banco
+// comando
 
-  //Teste de inserção
-  
-  if(mysqli_query($conexao,$comando))
-  {
-  // Se inserir
-  
-  $_SESSION['Erro'] = "Sucesso ao cadastrar";
+if ($foto != 'none') {
+    $fp = fopen($foto, 'rb');
+    $conteudo = fread($fp, $fototamanho);
+    $conteudo = addslashes($conteudo);
+    fclose($fp);
+}
+
+
+$comando = "insert into imoveis(nome, 
+                                tipo, 
+                                categoria, 
+                                bairro, 
+                                qquarto, 
+                                qsuite, 
+                                areatotal, 
+                                areaconstruida, 
+                                qvaga, 
+                                qreformas, 
+                                qbanheiro, 
+                                crad, 
+                                cond, 
+                                cad1, 
+                                cad2, 
+                                cad3, 
+                                cad4, 
+                                cad5, 
+                                cad6, 
+                                cad7, 
+                                cad8, 
+                                cad9, 
+                                cad10, 
+                                descricao, 
+                                foto) 
+                        VALUES ('$nome', 
+                                '$tipo', 
+                                '$categoria', 
+                                '$bairro', 
+                                '$qsuite', 
+                                '$qquarto', 
+                                '$areatotal', 
+                                '$areaconstruida', 
+                                '$qvaga', 
+                                '$qreformas', 
+                                '$qbanheiro', 
+                                '$crad', 
+                                '$cond', 
+                                '$cad1', 
+                                '$cad2', 
+                                '$cad3', 
+                                '$cad4', 
+                                '$cad5', 
+                                '$cad6', 
+                                '$cad7', 
+                                '$cad8', 
+                                '$cad9', 
+                                '$cad10', 
+                                '$descricao', 
+                                '$foto')";
+
+
+//Teste de inserção
+
+if(mysqli_query($conexao,$comando)) {
+    // Se inserir
+    $_SESSION['Erro'] = "Sucesso ao cadastrar";
     //manda para a mesma tela ou outra se der bom
-   Header("Location: ola.php");
-  }
-  else
-  {
-  // Se der ruim 
-  
-  $_SESSION['Erro'] = "Erro ao cadastrar";
-	Header("Location: area_restrita_cadastro.php");
-  }
+    Header("Location: ola.php");
+} else {
+    // Se der ruim 
+    $_SESSION['Erro'] = "Erro ao cadastrar";
+    Header("Location: area_restrita_cadastro.php");
+}
 ?>
