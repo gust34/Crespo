@@ -13,7 +13,6 @@ unset($_SESSION['Erro']);
 
 /* Variavel com os nomes das imagens */
 $imgName = null;
-
 /* upload da(s) imagem(s) */
 /* Validar tipo de imagem */
 foreach ($_FILES as $key => $file) {
@@ -78,5 +77,4 @@ if(!empty($_SESSION['Erro'])) {
         $_SESSION['Erro'] = 'Ocorreu um erro interno, contate o suporte.';
     }
 }
-
 header("Location: ../area_restrita_cadastro.php");

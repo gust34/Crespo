@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-
     <!--Fim do Footer-->
 </body>
-</head>
+</html>
+
