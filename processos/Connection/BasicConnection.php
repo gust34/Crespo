@@ -4,8 +4,9 @@ use Connection\DatabaseException;
 /**
  * BasicConnection - Operacoes basicas para a conexão com a base de dados
  * 
- * @author Caio Corrêa Chaves
- * @since 0.0.0
+ * @author Caio Corrêa Chaves <caio.chaves@etec.sp.gov.br>
+ * @version 1.1
+ * @package Connection
  */
 class BasicConnection
 {
@@ -16,6 +17,7 @@ class BasicConnection
      * 
      * @access protected
      * @var string
+     * @since 1.0
      */
     protected $username;
     /**
@@ -25,6 +27,7 @@ class BasicConnection
      * 
      * @access protected
      * @var string
+     * @since 1.0
      */
     protected $charset;
     /**
@@ -34,6 +37,7 @@ class BasicConnection
      * 
      * @access protected
      * @var string
+     * @since 1.0
      */
     protected $password;
     /**
@@ -43,6 +47,7 @@ class BasicConnection
      * 
      * @access protected
      * @var string
+     * @since 1.0
      */
     protected $hostname;
     /**
@@ -52,6 +57,7 @@ class BasicConnection
      * 
      * @var string
      * @access protected
+     * @since 1.0
      */
     protected $database;
     /**
@@ -61,8 +67,32 @@ class BasicConnection
      * 
      * @access private
      * @var mysqli_connect
+     * @since 1.0
      */
     private $connection;
+
+    /**
+     * $error
+     * 
+     * Erros ocorridos durante a conexão
+     * 
+     * @access protected
+     * @since 1.1
+     * @var string
+     */
+    protected $error;
+
+    /**
+     * $affectedRows
+     * 
+     * Linhas afetadas por consulta na base de dados
+     * 
+     * @access protected
+     * @since 1.1
+     * @var int
+     */
+    protected $affectedRows;
+    
     /**
      * function __construct()
      * 
@@ -151,6 +181,8 @@ class BasicConnection
         } else {
             //se a variavel É um array faça o mesmo procedimento para cada elemento desse array
             foreach ($dados as $key => $value) {
+                // print_r($value);
+                // echo "<br>";
                 $dados[$key] = $this->connection->real_escape_string($value);
                 if (strpos($key, 'VAR')) {
                     $dados[$key] = "'$dados[$key]'";
@@ -190,6 +222,8 @@ class BasicConnection
             throw new DatabaseException($this->connection->error);
             return false;   
         }
+
+        $this->affectedRows = $this->connection->affected_rows;
         return $data;
     }
     /**
@@ -220,5 +254,34 @@ class BasicConnection
         } while ($rep);
 
         return $dados;
+    }
+
+    /**
+     * function getError()
+     * 
+     * Retorna erros da consulta
+     * 
+     * @access public
+     * @return string
+     * @since 1.1
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+
+    /**
+     * function setError()
+     * 
+     * Setter de $this->error
+     * 
+     * @access protected
+     * @return void
+     * @since 1.1
+     */
+    protected function setError()
+    {
+        $this->error = $this->connection->error;
     }
 }

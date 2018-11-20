@@ -55,8 +55,8 @@
             <div class="imoveis-row">
                 <?php
                 session_start();
-                include "Conexao.php";
-                $sql = $conexao->prepare("SELECT * FROM imoveis WHERE home='1' LIMIT 6");
+                include "processos/conexao.php";
+                $sql = $conexao->prepare("SELECT * FROM Imoveis WHERE IMO_DESTAQUE='1' LIMIT 6");
                 $sql->execute();
                 $resultado = $sql->get_result();
                 ?>

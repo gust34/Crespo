@@ -7,7 +7,9 @@ use Connection\DatabaseException;
  * 
  * Funções de conexão com bases de dados
  * 
- * @author Caio Corrêa Chaves
+ * @author Caio Corrêa Chaves <caio.chaves@etec.sp.gov.br>
+ * @version 1.0
+ * @package Connection
  */
 class Connection extends BasicConnection
 {
@@ -73,6 +75,7 @@ class Connection extends BasicConnection
         }
 
         $return = $this->execute($query, $isSelect);
+        $this->setError();
 
         $this->close();
 
@@ -81,7 +84,10 @@ class Connection extends BasicConnection
                 $return = $return[0];
             }
         }
-        
-        return $return;
+        if (!empty($return)) {
+            return $return;
+        } else {
+            return $this->affectedRows;
+        }
     }
 }
