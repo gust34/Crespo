@@ -36,6 +36,11 @@
                                         <input type="text" class="form-control" id="#" name="user" placeholder="usuário" style="background: white">
                                         <input type="password" class="form-control senha" id="#" name="senha" placeholder="senha" style="background: white">
                                         <button type="submit" class="btn btn-primary entrar">ENTRAR</button>
+                                        <?php if (!empty($_SESSION['ErroLogin'])): ?>
+                                        <span style="text-align: center; color: red">
+                                            <?= $_SESSION['ErroLogin'] ?>
+                                        </span>
+                                        <?php endif ?>
                                     </form>
                                 </div>
                             </div>
