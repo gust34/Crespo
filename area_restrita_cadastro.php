@@ -4,6 +4,7 @@ if (empty($_SESSION['user'])) {
     header('Location: index.php');
     exit();
 }
+require 'processos/load_imoveis.php';
 ?>
 <!Doctype html>
 <html>
@@ -50,20 +51,46 @@ if (empty($_SESSION['user'])) {
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if (!empty($imoveis)): ?>
+                            <?php foreach($imoveis as $imovel): ?>
+                            <?php
+                            $status = null;
+                            switch ($imovel['IMO_SITUACAO']) {
+                                case 1:
+                                    $status = 'Vigente';
+                                    break;
+                                case 2:
+                                    $status = 'Em negociação';
+                                    break;
+                                case 3:
+                                    $status = 'Alugado';
+                                    break;
+                                case 4:
+                                    $status = 'Vendido';
+                                    break;
+                            }
+                            ?>
+                            <tr>
+                                <th scope="row"><input type="checkbox" id="checkboxDestaque" <?=$imovel['IMO_DESTAQUE'] ? 'checked' : ''?>></th>
+                                <td><?=$imovel['IMO_COD']?></td>
+                                <td><?=$imovel['IMO_NOME']?></td>
+                                <td><?=$imovel['IMO_TIPO']?></td>
+                                <td><?=$imovel['IMO_CATEGORIA']?></td>
+                                <td><?=$status?></td>
+                            </tr>
+                            <?php endforeach ?>
+                        <?php else: ?>
                         <tr>
-                            <th scope="row"><input type="checkbox" id="#"></th>
-                            <td>001</td>
-                            <td>Casa no Colinos</td>
-                            <td>Casa</td>
-                            <td>Venda</td>
-                            <td>Em negociação</td>
+                            <th>Não há imóveis cadastrados</th>
                         </tr>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
     <!--Fim da área da tabela-->
+
 
     <!--MODAL DE CADASTRO-->
     <div class="modal fade bd-example-modal-lg" id="modalcadastro" tabindex="0" role="dialog" aria-labelledby="modalcadastro"
@@ -458,12 +485,7 @@ if (empty($_SESSION['user'])) {
         </div>
     </div>
 
-
-
-
-
     <!--Footer-->
-
     <div class="rodape-baixo">
         <div class="row justify-content-center">
             <div class="col-sm-3 ml-5 pl-5 mt-4">
@@ -487,5 +509,6 @@ if (empty($_SESSION['user'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
 </body>
 </head>

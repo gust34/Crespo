@@ -19,6 +19,7 @@ class Autoload
 
         $this->archives = [
             $file . '.php',
+            'processos/' . $file . '.php'
         ];
         
         foreach ($this -> archives as $archive) {
