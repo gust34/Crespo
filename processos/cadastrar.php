@@ -44,6 +44,10 @@ if(!empty($_SESSION['Erro'])) {
     $query = 'INSERT INTO Imoveis (IMO_NOME, IMO_TIPO, IMO_CATEGORIA, IMO_BAIRRO, IMO_SUITES, IMO_QUARTOS, IMO_AREA_TOTAL, IMO_AREA_CONSTRUIDA, IMO_REFORMAS, IMO_VAGAS, IMO_BANHEIROS, IMO_CONDOMINIO, IMO_ENDERECO_CONDOMINIO, IMO_CARACTERISTICAS, IMO_DESCRICAO, IMO_PRECO_VENDA, IMO_PRECO_ALUGUEL, IMO_FOTOS)';
     $query .= 'VALUES (@nomeVAR, @tipoVAR, @categVAR, @bairroVAR, @suitesVAR, @quartosVAR, @areaTotVAR, @areaConstVAR, @reformasVAR, @vagasVAR, @banVAR, @condominioVAR, @enderecoCondVAR, @caracsVAR, @descVAR, @precoVendaVAR, @precoAluguelVAR, @imgVAR)';
 
+    foreach ($_POST['cad'] as $key => $value) {
+        $_POST['cad'][$key] = utf8_encode($value);
+    }
+
     $vars = array(
         '@nomeVAR' => $_POST['nome'],
         '@tipoVAR' => $_POST['tipo'],
@@ -59,7 +63,7 @@ if(!empty($_SESSION['Erro'])) {
         '@condominioVAR' => $_POST['condominio'],
         '@enderecoCondVAR' => $_POST['endereco_condominio'],
         '@caracsVAR' => serialize($_POST['cad']),
-        '@descVAR' => $_POST['descricao'],
+        '@descVAR' => utf8_encode($_POST['descricao']),
         '@precoVendaVAR' => str_replace(',', '.', $_POST['preco_venda']),
         '@precoAluguelVAR' => str_replace(',', '.', $_POST['preco_aluguel']),
         '@imgVAR' => serialize($imgName)

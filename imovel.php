@@ -30,97 +30,59 @@
         </div>
 
         <div class='detalhes'>
-            <h3><?= $resultado['nome'] ?></h3>
-            <h3><?= $resultado['PrecoDeVenda'] ?></h3>
-            <h3><?= $resultado['bairro'] ?></h3>
+            <h3><?= $resultado['IMO_NOME'] ?></h3>
+            <h3><?= $resultado['IMO_PRECO_VENDA'] ?></h3>
+            <h3><?= $resultado['IMO_BAIRRO'] ?></h3>
             <div class='atributos'>
                 <div class='atributo'>
                     <!-- icone banheiro -->
-                    <h3><?= $resultado['qbanheiro'] ?></h3>
+                    <h3><?= $resultado['IMO_BANHEIROS'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone quartos -->
-                    <h3><?= $resultado['qquarto'] ?></h3>
+                    <h3><?= $resultado['IMO_QUARTOS'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone vagas -->
-                    <h3><?= $resultado['qvaga'] ?></h3>
+                    <h3><?= $resultado['IMO_VAGAS'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone reformas -->
-                    <h3><?= $resultado['qreformas'] ?></h3>
+                    <h3><?= $resultado['IMO_REFORMAS'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone suítes -->
-                    <h3><?= $resultado['qsuite'] ?></h3>
+                    <h3><?= $resultado['IMO_SUITES'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone Area Total -->
-                    <h3><?= $resultado['areatotal'] ?></h3>
+                    <h3><?= $resultado['IMO_AREA_TOTAL'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone Area Construida -->
-                    <h3><?= $resultado['areaconstruida'] ?></h3>
+                    <h3><?= $resultado['IMO_AREA_CONSTRUIDA'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone Condominio -->
-                    <h3><?= $resultado['crad'] ?></h3>
+                    <h3><?= $resultado['IMO_CONDOMINIO'] ?></h3>
                 </div>
+                <?php foreach (unserialize($resultado['IMO_CARACTERISTICAS']) as $value): ?>
                 <div class='atributo'>
                     <!-- icone cad1 -->
-                    <h3><?= $resultado['cad1'] ?></h3>
+                    <h3><?= utf8_decode($value) ?></h3>
                 </div>
-                <div class='atributo'>
-                    <!-- icone cad2 -->
-                    <h3><?= $resultado['cad2'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad3 -->
-                    <h3><?= $resultado['cad3'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad4 -->
-                    <h3><?= $resultado['cad4'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad5 -->
-                    <h3><?= $resultado['cad5'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad6 -->
-                    <h3><?= $resultado['cad6'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad7 -->
-                    <h3><?= $resultado['cad7'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad8 -->
-                    <h3><?= $resultado['cad8'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad9 -->
-                    <h3><?= $resultado['cad9'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone cad10 -->
-                    <h3><?= $resultado['cad10'] ?></h3>
-                </div>
+                <?php endforeach ?>
                 <div class='atributo'>
                     <!-- icone descricao -->
-                    <h3><?= $resultado['descricao'] ?></h3>
-                </div>
-                <div class='atributo'>
-                    <!-- icone tipo -->
-                    <h3><?= $resultado['tipo'] ?></h3>
+                    <h3><?= utf8_decode($resultado['IMO_DESCRICAO']) ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone destaque -->
-                    <h3><?= $resultado['home'] ?></h3>
+                    <h3><?= $resultado['IMO_DESTAQUE'] ?></h3>
                 </div>
                 <div class='atributo'>
                     <!-- icone Preco de Aluguel -->
-                    <h3><?= $resultado['PrecoDeAluguel'] ?></h3>
+                    <h3><?= $resultado['IMO_PRECO_ALUGUEL'] ?></h3>
                 </div>
             </div>
             <!-- e assim vai... todos os atributos listados -->
@@ -149,4 +111,4 @@
         <!--Fim do Rodapé-->
     </div>
 </body>
-</head>
+</html>

@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `Imoveis` (
   `IMO_CONDOMINIO` tinyint(1) NOT NULL,
   `IMO_ENDERECO_CONDOMINIO` text CHARACTER SET utf8,
   `IMO_CARACTERISTICAS` text CHARACTER SET utf8 NOT NULL,
-  `IMO_DESCRICAO` text CHARACTER SET utf8,
+  `IMO_DESCRICAO` text,
   `IMO_PRECO_VENDA` decimal(9,2) NOT NULL,
   `IMO_PRECO_ALUGUEL` decimal(9,2) NOT NULL,
   `IMO_DESTAQUE` tinyint(1) NOT NULL DEFAULT '0',
@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS `Imoveis` (
   `IMO_FOTOS` text CHARACTER SET utf8 NOT NULL,
   `IMO_SITUACAO` int(1) NOT NULL DEFAULT '1' COMMENT '1 - Vigente, 2 - Em negociação, 3 - Alugado, 4 - Vendido',
   PRIMARY KEY (`IMO_COD`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 INSERT INTO `Imoveis` (`IMO_COD`, `IMO_NOME`, `IMO_TIPO`, `IMO_CATEGORIA`, `IMO_BAIRRO`, `IMO_SUITES`, `IMO_QUARTOS`, `IMO_AREA_TOTAL`, `IMO_AREA_CONSTRUIDA`, `IMO_REFORMAS`, `IMO_VAGAS`, `IMO_BANHEIROS`, `IMO_CONDOMINIO`, `IMO_ENDERECO_CONDOMINIO`, `IMO_CARACTERISTICAS`, `IMO_DESCRICAO`, `IMO_PRECO_VENDA`, `IMO_PRECO_ALUGUEL`, `IMO_DESTAQUE`, `IMO_ATIVO`, `IMO_FOTOS`, `IMO_SITUACAO`) VALUES
-(11, 'Teste', 'Casa', 'Comprar', 'bairro', 2, 2, 100, 80, 2, 2, 1, 0, '', 'a:10:{i:1;s:16:\"Caracteristica 1\";i:6;s:16:\"Caracteristica 6\";i:2;s:16:\"Caracteristica 2\";i:7;s:16:\"Caracteristica 7\";i:3;s:16:\"Caracteristica 3\";i:8;s:16:\"Caracteristica 8\";i:4;s:16:\"Caracteristica 4\";i:9;s:16:\"Caracteristica 9\";i:5;s:16:\"Caracteristica 5\";i:10;s:17:\"Caracteristica 10\";}', ' Descrição ', '30.00', '20.00', 0, 1, 'a:1:{s:5:\"foto0\";s:15:\"1542734240.jpeg\";}', 1);
+(13, 'Teste', 'Casa', 'Comprar', 'bairro', 2, 2, 100, 80, 2, 2, 1, 0, '', 'a:10:{i:1;s:16:\"Caracteristica 1\";i:6;s:16:\"Caracteristica 6\";i:2;s:16:\"Caracteristica 2\";i:7;s:16:\"Caracteristica 7\";i:3;s:16:\"Caracteristica 3\";i:8;s:16:\"Caracteristica 8\";i:4;s:16:\"Caracteristica 4\";i:9;s:16:\"Caracteristica 9\";i:5;s:16:\"Caracteristica 5\";i:10;s:17:\"Caracteristica 10\";}', 'DescriÃƒÂ§ÃƒÂ£o ', '30.00', '20.00', 0, 1, 'a:1:{s:5:\"foto0\";s:15:\"1542823253.jpeg\";}', 1);
 
 DROP TABLE IF EXISTS `Usuario`;
 CREATE TABLE IF NOT EXISTS `Usuario` (
