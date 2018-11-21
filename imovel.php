@@ -1,3 +1,4 @@
+<?php require 'processos/get_imovel.php'; ?>
 <!Doctype html>
 <html>
 <head>
@@ -27,7 +28,6 @@
                 </div>
             </div>
         </div>
-        <?php include 'Imovel_Busca.php'; ?>
 
         <div class='detalhes'>
             <h3><?= $resultado['nome'] ?></h3>
