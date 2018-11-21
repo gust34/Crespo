@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if (empty($_SESSION['user'])) {
+    header('Location: index.php');
+    exit();
+}
+?>
 <!Doctype html>
 <html>
 <head>
