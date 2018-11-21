@@ -15,6 +15,11 @@ require 'processos/load_imoveis.php';
     <meta charset="utf-8">
 </head>
 <body>
+    <div id="loading" style="position: absolute; top: 0; left: 0; display: none; width: 100%; height: 100%; z-index: 1000; background: rgba(0, 0, 0, 0.6);">
+        <div style="background: white; width: 25%; position: absolute; left: 37.5%; top: 10em; padding: 2em; text-align: center">
+            Aguarde...
+        </div>
+    </div>
     <!--Top bar-->   
 	<div class="section">
         <div class="header">
@@ -71,7 +76,7 @@ require 'processos/load_imoveis.php';
                             }
                             ?>
                             <tr>
-                                <th scope="row"><input type="checkbox" id="checkboxDestaque" <?=$imovel['IMO_DESTAQUE'] ? 'checked' : ''?>></th>
+                                <th scope="row"><input type="checkbox" class="checkboxDestaque" onclick="setDestaque('<?=$imovel['IMO_COD']?>', this.checked);" <?=$imovel['IMO_DESTAQUE'] ? 'checked' : ''?>></th>
                                 <td><?=$imovel['IMO_COD']?></td>
                                 <td><?=$imovel['IMO_NOME']?></td>
                                 <td><?=$imovel['IMO_TIPO']?></td>
