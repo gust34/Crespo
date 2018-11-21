@@ -1,0 +1,2 @@
+Usuário para testes: UserTest
+Senha dele: 123123
