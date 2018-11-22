@@ -11,7 +11,7 @@ try {
     $con = new Connection('bdcrespo');
     $imoveis = $con->dbExec($query);
 
-    if (!isset($imoveis[0])) {
+    if (!isset($imoveis[0]) and !empty($imoveis)) {
         $back = $imoveis;
         $imoveis = null;
         $imoveis[0] = $back;
