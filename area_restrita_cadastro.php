@@ -49,10 +49,12 @@ require 'processos/load_imoveis.php';
                         <tr>
                             <th scope="col"  style="width: 20%">Destaque</th>
                             <th scope="col">Código</th>
-                            <th scope="col" style="width: 30%">Título</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col" style="width: 20%">Situação</th>
+                            <th scope="col" style="width: 25%">Título</th>
+                            <th scope="col" style="width: 12%;">Tipo</th>
+                            <th scope="col" style="width: 15%;">Categoria</th>
+                            <th scope="col" style="width: 12%">Situação</th>
+                            <th scope="col" style="width: 20%"></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +83,9 @@ require 'processos/load_imoveis.php';
                                 <td><?=$imovel['IMO_NOME']?></td>
                                 <td><?=$imovel['IMO_TIPO']?></td>
                                 <td><?=$imovel['IMO_CATEGORIA']?></td>
-                                <td><?=$status?></td>
+                                <td><?=$status?> </td>
+                                <td> <button type="submit" class="btn btn-primary btn-sm" style="" data-toggle="modal" data-target="#modaleditar">Editar</button>
+                                <button type="submit" class="btn btn-primary btn-sm" action="">Remover</button> <td>
                             </tr>
                             <?php endforeach ?>
                         <?php else: ?>
@@ -300,7 +304,7 @@ require 'processos/load_imoveis.php';
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="cadastro_imovel" method="POST" action="Cadastrar.php">
+                    <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
                         <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
                             required>
 
