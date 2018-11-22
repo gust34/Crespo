@@ -42,7 +42,9 @@ html, body {
         display: block;
     }
 }
-
+@media only screen and (max-width: 1023px) {
+    
+}
 @media only screen and (min-width: 1024px) {
     .menu {
         transform: translateX(0);
@@ -244,6 +246,9 @@ html, body {
 @media only screen and (min-width: 1024px) {
     .barra {
         flex-direction: row;
+    }
+    .barra-busca {
+        width: 500px;
     }
 }
 .barra {

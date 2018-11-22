@@ -273,8 +273,7 @@ require 'processos/load_imoveis.php';
                                 <h6  style="margin-left: 14%;">Enviar Imagem</h6>
                             </div>
                             <div class="col-sm-8 mt-3 pl-3">
-                                <input type="file" name="foto0" id="#" class="#"  accept="image/png, image/jpeg" multiple required> 
-                                <input type="hidden" name="MAX_FILE_SIZE" value="122500"/>      
+                                <input type="file" name="foto0" id="#" class="#"  accept="image/png, image/jpeg" multiple required>     
                             </div>
                         </div>
 
