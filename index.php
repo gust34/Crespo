@@ -1,7 +1,7 @@
 <!Doctype html>
 <html>
 <head>
-    <title> Crespo Incorporadora </title>
+    <title>Crespo Incorporadora</title>
     <meta charset="utf-8">
     <!--CSS reset e Bootstrap-->
     <link rel="Stylesheet" href="css/reset.css">
@@ -15,7 +15,7 @@
             <img src="img/logo.png" class="logo">
             <i class="fas fa-bars fa-2x" id="open_menu_mobile" onclick="openMenuMobile()"></i>
             <div class="menu row" id="menu_mobile">
-                <a class="nav-link" href="index.html">HOME</a>
+                <a class="nav-link" href="index.php">HOME</a>
                 <a class="nav-link" href="#">IMÓVEIS</a>
                 <a class="nav-link" href="#">QUEM SOMOS</a>
                 <a class="nav-link" href="#contato">CONTATO</a>
@@ -23,11 +23,35 @@
         </div>
 
         <!--Carousel-->
-        <div class="carousel">
-            <img src="img/cristo1.jpg" class="cristo">
-            <h1> O SEU SONHO COMEÇA AQUI! </h1>
-            <img src="img/faixa.png" class="faixa">
+        <div class="carousel" style="margin-top: 65px;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/cristo1.jpg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/img1.jpeg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/img2.jpeg">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
+        <!-- <img src="img/faixa.png" class="faixa"> -->
     </div>
 
     <div class="section imoveis">
@@ -46,7 +70,10 @@
                     </select>
                 </div>
                 <div>
-                    <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="#"></input>
+                    <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="#">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </div>
@@ -55,45 +82,48 @@
             <div class="imoveis-row">
                 <?php
                 session_start();
-                include "Conexao.php";
-                $sql = $conexao->prepare("SELECT * FROM imoveis WHERE home='1' LIMIT 6");
-                var_dump($sql);
+                include "processos/conexao.php";
+                $sql = $conexao->prepare("SELECT * FROM Imoveis WHERE IMO_DESTAQUE='1' AND IMO_ATIVO = '1' LIMIT 6");
                 $sql->execute();
                 $resultado = $sql->get_result();
-
-                while($linha = $resultado->fetch_assoc()){
-
-                    if(empty($linha['PrecoDeVenda'])) {
-                        echo "
-                        <div class='imovel'>
-                            <h1>".$linha['bairro']."</h1>
-                            <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
-                            <span class='valor'>
-                                ALUGUEL ". $linha['PrecoDeAluguel']."
-                            </span>
-                            <div class='detalhes'>
-                                <span>Dormitorios <br>".$linha['qquarto']."</span>
-                                <span>Banheiros <br>".$linha['qbanheiro']."</span>
-                                <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
-                            </div>
-                        </div>";
-                    } else {
-                        echo "
-                        <div class='imovel'>
-                            <h1>".$linha['bairro']."</h1>
-                            <img src='img/thumb.php?src=casateste.jpg&size=300x200'>
-                            <span class='valor'>
-                                VENDA ". $linha['PrecoDeVenda']."
-                            </span>
-                            <div class='detalhes'>
-                                <span>Dormitorios <br>".$linha['qquarto']."</span>
-                                <span>Banheiros <br>".$linha['qbanheiro']."</span>
-                                <span>Área <br>".$linha['areatotal']."m<sup>2</sup></span>
-                            </div>
-                        </div>";
-                    } 
-                }
+                // Contador de itens em cada row
+                $i = 0;
                 ?>
+
+                <?php while($linha = $resultado->fetch_assoc()): ?>
+                    <?php if ($i % 3 == 0): ?>
+                        </div>
+                        <div class="imoveis-row">
+                    <?php endif ?>
+                    <?php $fotos = unserialize($linha['IMO_FOTOS']); ?>
+                    <?php if(empty($linha['IMO_PRECO_VENDA'])): ?>
+                        <div class='imovel'>
+                            <h1><?=$linha['IMO_BAIRRO']?></h1>
+                            
+                            <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
+                            <span class='valor'>ALUGUEL <?=$linha['IMO_PRECO_ALUGUEL']?></span>
+                            <div class='detalhes'>
+                                <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
+                                <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
+                                <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class='imovel'>
+                            <h1><?=$linha['IMO_BAIRRO']?></h1>
+                            <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
+
+                            <span class='valor'>VENDA <?=$linha['IMO_PRECO_VENDA']?></span>
+
+                            <div class='detalhes'>
+                                <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
+                                <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
+                                <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
+                            </div>
+                        </div>
+                    <?php endif ?>
+                    <?php $i++; ?>
+                <?php endwhile ?>
             </div>
         </div>
     </div>
@@ -123,49 +153,52 @@
                <h1> creci </h1>
                <h1> cargo </h1> -->
            </div>
-       </div>
-   </div>
+        </div>
+    </div>
 
-   <div class="section contato">
-   </div>
+    <div class="section contato">
+    </div>
 
-   <div class="rodape-baixo" id="footer">
-       <!-- <div class="row justify-content-center">
+    <div class="rodape-baixo" id="footer">
+        <!-- <div class="row justify-content-center">
            <div class="col-sm-3 ml-5 pl-5 mt-4">
                <img src="img/logo.png" class="logo-rodape">
            </div>
-       </div>
-       <div class="row justify-content-center">
+        </div>
+        <div class="row justify-content-center">
            <div class="col-sm-3 ml-5 pl-5 mt-5">
                   Funcionamento
                <span class="ml-4"> Horário de Funcionamento </span><br>
                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
            </div>
-       </div>
-       <div class="row justify-content-center">
+        </div>
+        <div class="row justify-content-center">
            <div class="col-sm-4 ml-5 pl-5 mt-4 mb-3">
                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
            </div>
-       </div> -->
-       <div class="row justify-content-center">
-           <div>
-               <img src="img/logo.png" class="logo-rodape">
-           </div>
-       </div>
-       <div class="row justify-content-center">
-           <div>
-               <!-- Funcionamento -->
-               <span class="ml-4"> Horário de Funcionamento </span><br>
-               <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-           </div>
-       </div>
-       <div class="row justify-content-center">
-           <div>
-               <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-           </div>
-       </div>
-       <!--Fim do Rodapé-->
-   </div>
-   <script type="text/javascript" src="js/actions.js"></script>
+        </div> -->
+        <div class="row justify-content-center">
+            <div>
+                <img src="img/logo.png" class="logo-rodape">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div>
+                <!-- Funcionamento -->
+                <span class="ml-4"> Horário de Funcionamento </span><br>
+                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div>
+                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
+            </div>
+        </div>
+        <!--Fim do Rodapé-->
+    </div>
+    <script type="text/javascript" src="js/actions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

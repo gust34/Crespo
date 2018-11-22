@@ -480,7 +480,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
-                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
+                                <button type="submit" class="btn btn-primary" id="#" name=""> Cadastrar Imóvel </button>
                             </div>
                         </div>
 
