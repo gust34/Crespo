@@ -25,7 +25,7 @@ require 'processos/load_imoveis.php';
         <div class="header">
             <img src="img/logo.png" class="logo">
             <div class="menu">
-                <a class="nav-link" href="index.html">HOME</a>
+                <a class="nav-link" href="index.php">HOME</a>
                 <a class="nav-link" href="#">IMÓVEIS</a>
                 <a class="nav-link" href="#">QUEM SOMOS</a>
                 <a class="nav-link" href="#contato">CONTATO</a>
