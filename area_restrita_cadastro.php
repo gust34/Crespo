@@ -284,7 +284,7 @@ require 'processos/load_imoveis.php';
     </div>
 
     <!--MODAL DE ALTERAR **NÃO FINALIZADO**-->
-    <div class="modal fade bd-example-modal-lg" id="modalcadastro" tabindex="0" role="dialog" aria-labelledby="modalcadastro"
+    <div class="modal fade bd-example-modal-lg" id="modaleditar" tabindex="0" role="dialog" aria-labelledby="modalcadastro"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
