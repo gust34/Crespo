@@ -262,7 +262,6 @@ require 'processos/load_imoveis.php';
                         <div class="row justify-content-center mt-3 offset-md-2">
                             <div class="col-sm-4 mt-3 pl-5">
                                 <h6  style="margin-left: 14%;">Enviar Imagem</h6>
-                            </div>
                             <div class="col-sm-8 mt-3 pl-3">
                                 <input type="file" name="foto0" id="#" class="#"  accept="image/png, image/jpeg" multiple required> 
                                 <input type="hidden" name="MAX_FILE_SIZE" value="122500"/>      
@@ -296,12 +295,10 @@ require 'processos/load_imoveis.php';
                 </div>
                 <div class="modal-body">
                 <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
-                        <input type="text" id="#" class="form-control" name="cod_im" placeholder="Código do Imóvel" size="50"
-                            required>
-                            <input type="text" id="#" class="form-control" name="" placeholder="Título" size="50"
+                            <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
                             required>
                         <input type="hidden" name="cod" id="targetCod">
-                        
+
                         <div class="row justify-content-center">
 
                             <select name="tipo" id="#" class="form-control form-control-md mt-3 mr-5" style="width: 20%; float: left;"
@@ -392,42 +389,42 @@ require 'processos/load_imoveis.php';
                                 <h6 class=""> Características </h6>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad1" placeholder="Característica 1" required>
+                                        <input type="text" class="form-control" id="#" name="cad[1]" placeholder="Característica 1" required>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad6" placeholder="Característica 6" required>
+                                        <input type="text" class="form-control" id="#" name="cad[6]" placeholder="Característica 6" required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad2" placeholder="Característica 2" required>
+                                        <input type="text" class="form-control" id="#" name="cad[2]" placeholder="Característica 2" required>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad7" placeholder="Característica 7" required>
+                                        <input type="text" class="form-control" id="#" name="cad[7]" placeholder="Característica 7" required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%; ">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad3" placeholder="Característica 3">
+                                        <input type="text" class="form-control" id="#" name="cad[3]" placeholder="Característica 3">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad8" placeholder="Característica 8">
+                                        <input type="text" class="form-control" id="#" name="cad[8]" placeholder="Característica 8">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad4" placeholder="Característica 4">
+                                        <input type="text" class="form-control" id="#" name="cad[4]" placeholder="Característica 4">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad9" placeholder="Característica 9">
+                                        <input type="text" class="form-control" id="#" name="cad[9]" placeholder="Característica 9">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad5" placeholder="Característica 5">
+                                        <input type="text" class="form-control" id="#" name="cad[5]" placeholder="Característica 5">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad10" placeholder="Característica 10">
+                                        <input type="text" class="form-control" id="#" name="cad[10]" placeholder="Característica 10">
                                     </div>
                                 </div>
                             </div>
@@ -474,11 +471,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
-<<<<<<< HEAD
                                 <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
-=======
-                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar dados </button>
->>>>>>> d062f2411c5d0cd83e41f16866d961b010c5288a
                             </div>
                         </div>
 

@@ -1,36 +1,139 @@
 <?php
 
 session_start();
+require("Autoload.php");
+use Connection\Connection;
 
-include_once("Conexao.php");
+$query = "UPDATE imoveis SET ";
+$vars = array();
 
+if(!empty($_POST['nome']))
+{
+    $query .= " IMO_NOME = @nomeVAR, ";
+    $vars['@nomeVAR'] = $_POST['nome']; 
+}
 
-$nome = mysqli_real_escape_string($conexao,$_POST['nome']);
-$tipo = mysqli_real_escape_string($conexao,$_POST['tipo']);
-$categoria = mysqli_real_escape_string($conexao,$_POST['categoria']);
-$bairro = mysqli_real_escape_string($conexao,$_POST['bairro']);
-$qsuite = mysqli_real_escape_string($conexao,$_POST['qsuite']);
-$qquarto = mysqli_real_escape_string($conexao,$_POST['qquarto']);
-$areatotal = mysqli_real_escape_string($conexao,$_POST['areatotal']);
-$areaconstruida = mysqli_real_escape_string($conexao,$_POST['areaconstruida']);
-$qvaga = mysqli_real_escape_string($conexao,$_POST['qvaga']);
-$qbanheiro = mysqli_real_escape_string($conexao,$_POST['qbanheiro']);
-$crad = mysqli_real_escape_string($conexao,$_POST['crad']);
-$cond = mysqli_real_escape_string($conexao,$_POST['cond']);
-$cad1 = mysqli_real_escape_string($conexao,$_POST['cad1']);
-$cad2 = mysqli_real_escape_string($conexao,$_POST['cad2']);
-$cad3 = mysqli_real_escape_string($conexao,$_POST['cad3']);
-$cad4 = mysqli_real_escape_string($conexao,$_POST['cad4']);
-$cad5 = mysqli_real_escape_string($conexao,$_POST['cad5']);
-$cad6 = mysqli_real_escape_string($conexao,$_POST['cad6']);
-$cad7 = mysqli_real_escape_string($conexao,$_POST['cad7']);
-$cad8 = mysqli_real_escape_string($conexao,$_POST['cad8']);
-$cad9 = mysqli_real_escape_string($conexao,$_POST['cad9']);
-$cad10 = mysqli_real_escape_string($conexao,$_POST['cad10']);
-$descricao = mysqli_real_escape_string($conexao,$_POST['descricao']);
-//$foto = mysqli_real_escape_string($conexao,$_POST['foto']);
+if(!empty($_POST['tipo']))
+{
+    $query .= " IMO_TIPO = @tipoVAR, ";
+    $vars['@tipoVAR'] = $_POST['tipo']; 
+}
 
-$comando = "UPDATE imoveis SET tipo='$tipo', categoria='$categoria', bairro='$bairro', qsuite='$qsuite', qquarto='$qquarto', areatotal='$areatotal', areaconstruida='$areaconstruida', qvaga='$qvaga', qbanheiro='$qbanheiro', crad='$crad', cond='$cond', cad1='$cad1', cad2='$cad2', cad3='$cad3', cad4='$cad4', cad5='$cad5', cad6='$cad6', cad7='$cad7', cad8='$cad8', cad9='$cad9', cad10='$cad10', descricao='$descricao' WHERE nome='$nome'";
+if(!empty($_POST['cad']))
+{
+    $caract = serialize($_POST['cad']);
+    $query .= " IMO_CATEGORIA = @categoriaVAR, ";
+    $vars['@categoriaVAR'] = $caract; 
+}
+
+if(!empty($_POST['bairro']))
+{
+    $query .= " IMO_BAIRRO = @bairroVAR, ";
+    $vars['@bairroVAR'] = $_POST['bairro']; 
+}
+
+if(!empty($_POST['qsuite']))
+{
+    $query .= " IMO_SUITES = @suiteVAR, ";
+    $vars['@suiteVAR'] = $_POST['qnome']; 
+}
+
+if(!empty($_POST['qquarto']))
+{
+    $query .= " IMO_QUARTOS = @quartoVAR, ";
+    $vars['@quartoVAR'] = $_POST['qquarto']; 
+}
+
+if(!empty($_POST['areatotal']))
+{
+    $query .= " IMO_AREA_TOTAL = @areatotalVAR, ";
+    $vars['@areatotalVAR'] = $_POST['areatotal']; 
+}
+
+if(!empty($_POST['areaconstruida']))
+{
+    $query .= " IMO_AREA_CONSTRUIDA = @areaconstruidaVAR, ";
+    $vars['@areacontruidaVAR'] = $_POST['areaconstruida']; 
+}
+
+if(!empty($_POST['reformas']))
+{
+    $query .= " IMO_REFORMAS = @reformaVAR, ";
+    $vars['@reformaVAR'] = $_POST['reformas']; 
+}
+
+if(!empty($_POST['qvaga']))
+{
+    $query .= " IMO_VAGAS = @vagaVAR, ";
+    $vars['@vagaVAR'] = $_POST['qvaga']; 
+}
+
+if(!empty($_POST['qbanheiro']))
+{
+    $query .= " IMO_BANHEIROS = @banheiroVAR, ";
+    $vars['@banheiroVAR'] = $_POST['qbanheiro']; 
+}
+
+if(!empty($_POST['crad']))
+{
+    $query .= " IMO_CONDOMINIO = @cradVAR, ";
+    $vars['@cradVAR'] = $_POST['crad']; 
+}
+
+if(!empty($_POST['cond']))
+{
+    $query .= " IMO_ENDERECO_CONDOMINIO = @condVAR, ";
+    $vars['@condVAR'] = $_POST['cond']; 
+}
+
+if(!empty($_POST['qquarto']))
+{
+    $query .= " IMO_CARACTERISTICAS = @quartoVAR, ";
+    $vars['@quartoVAR'] = $_POST['qquarto']; 
+}
+
+if(!empty($_POST['descricao']))
+{
+    $query .= " IMO_DESCRICAO = @descricaoVAR, ";
+    $vars['@descricaoVAR'] = $_POST['descricao']; 
+}
+
+if(!empty($_POST['PrecoDeVenda']))
+{
+    $query .= "IMO_PRECO_VENDA = @precodevendaVAR, ";
+    $vars['@precodevendaVAR'] = $_POST['PrecoDeVenda']; 
+}
+
+if(!empty($_POST['PrecoDeAluguel']))
+{
+    $query .= " IMO_PRECO_ALUGUEL = @precodealuguelVAR, ";
+    $vars['@precodealuguelVAR'] = $_POST['PrecoDeAluguel']; 
+}
+
+if(!empty($_POST['destaque']))
+{
+    $query .= "IMO_DESTAQUE = @destaqueVAR, ";
+    $vars['@destaqueVAR'] = $_POST['destaque']; 
+}
+
+if(!empty($_POST['ativo']))
+{
+    $query .= "IMO_ATIVO = @ativoVAR, ";
+    $vars['@ativoVAR'] = $_POST['ativo']; 
+}
+
+if(!empty($_POST['foto']))
+{
+    $query .= "IMO_FOTOS = @fotoVAR, ";
+    $vars['@fotoVAR'] = $_POST['foto']; 
+}
+
+if(!empty($_POST['situacao']))
+{
+    $query .= "IMO_SITUACAO = @situacaoVAR, ";
+    $vars['@situacaoVAR'] = $_POST['situacao']; 
+}
+
 
 if(mysqli_query($conexao,$comando)) {
     $_SESSION['Erro'] = "Sucesso ao alterar";
