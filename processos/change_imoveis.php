@@ -134,12 +134,8 @@ if(!empty($_POST['situacao']))
     $vars['@situacaoVAR'] = $_POST['situacao']; 
 }
 
+$con = new Connection('bdcrespo');
 
-if(mysqli_query($conexao,$comando)) {
-    $_SESSION['Erro'] = "Sucesso ao alterar";
-    Header("Location: ola.php");
-} else {
-    $_SESSION['Erro'] = "Erro alterar";
-    Header("Location: area_restrita_cadastro.php");
-}
+$con->dbExec($query, $vars);
+
 ?>
