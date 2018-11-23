@@ -8,19 +8,11 @@
     <link rel="Stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="Stylesheet" href="css/style.css">
+    <link rel="Stylesheet" href="css/included_styles.css">
 </head>
 <body>
     <div class="section">
-        <div class="header">
-            <img src="img/logo.png" class="logo">
-            <i class="fas fa-bars fa-2x" id="open_menu_mobile" onclick="openMenuMobile()"></i>
-            <div class="menu row" id="menu_mobile">
-                <a class="nav-link" href="index.php">HOME</a>
-                <a class="nav-link" href="#">IMÓVEIS</a>
-                <a class="nav-link" href="#">QUEM SOMOS</a>
-                <a class="nav-link" href="#contato">CONTATO</a>
-            </div>
-        </div>
+        <?php include '_includes/menu.php' ?>
 
         <!--Carousel-->
         <div class="carousel" style="margin-top: 65px;">
@@ -162,44 +154,7 @@
     <div class="section contato">
     </div>
 
-    <div class="rodape-baixo" id="footer">
-        <!-- <div class="row justify-content-center">
-           <div class="col-sm-3 ml-5 pl-5 mt-4">
-               <img src="img/logo.png" class="logo-rodape">
-           </div>
-        </div>
-        <div class="row justify-content-center">
-           <div class="col-sm-3 ml-5 pl-5 mt-5">
-                  Funcionamento
-               <span class="ml-4"> Horário de Funcionamento </span><br>
-               <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-           </div>
-        </div>
-        <div class="row justify-content-center">
-           <div class="col-sm-4 ml-5 pl-5 mt-4 mb-3">
-               <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-           </div>
-        </div> -->
-        <div class="row justify-content-center">
-            <div>
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <!-- Funcionamento -->
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-            </div>
-        </div>
-        <!--Fim do Rodapé-->
-    </div>
-    <script type="text/javascript" src="js/actions.js"></script>
+    <?php include '_includes/footer.php'; ?>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

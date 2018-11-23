@@ -12,6 +12,7 @@ require 'processos/load_imoveis.php';
     <title> Área Restrita </title>
     <link rel="Stylesheet" href="css/bootstrap.min.css">
     <link rel="Stylesheet" href="css/style_restricted_area.css">
+    <link rel="Stylesheet" href="css/included_styles.css">
     <meta charset="utf-8">
 </head>
 <body>
@@ -21,17 +22,7 @@ require 'processos/load_imoveis.php';
         </div>
     </div>
     <!--Top bar-->   
-	<div class="section">
-        <div class="header">
-            <img src="img/logo.png" class="logo">
-            <div class="menu">
-                <a class="nav-link" href="index.php">HOME</a>
-                <a class="nav-link" href="#">IMÓVEIS</a>
-                <a class="nav-link" href="#">QUEM SOMOS</a>
-                <a class="nav-link" href="#contato">CONTATO</a>
-            </div>
-        </div>
-    </div>
+	<?php include '_includes/menu.php'; ?>
 
     <!-- Início da área da tabela -->
     <section class="section-table">
@@ -495,24 +486,7 @@ require 'processos/load_imoveis.php';
     </div>
 
     <!--Footer-->
-    <div class="rodape-baixo">
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-4">
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-5">
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-4 ml-5 pl-5 mt-4 mb-3">
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>
-            </div>
-        </div>
-    </div>
+    <?php include '_includes/footer.php'; ?>
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

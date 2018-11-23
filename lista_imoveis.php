@@ -10,13 +10,17 @@
     <link rel="Stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="Stylesheet" href="css/lista.css">
+    <link rel="Stylesheet" href="css/included_styles.css">
 </head>
 <body>
-    <header class="fluid-container" style="text-align: center; line-height: 100px;">
-        HEADER
-    </header>
-
-    <div class="container">
+    <div class="section">
+        <?php include '_includes/menu.php'; ?>
+    </div>
+    
+    <hr style="margin-bottom: 1em;">
+    
+    <main class="container" style="margin-top: 70px;">
+        <hr style="margin-bottom: 1em;">
         <form class="barra row" method="post">
             <div class="col-12 col-lg-3" style="margin-bottom: 1em;">
                 <select name="tipo" class="tipo form-control">
@@ -33,10 +37,9 @@
             </div>
             <button type="submit" class="btn btn-primary col-4 col-lg-1" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
         </form>
-    </div>
-    <hr style="margin-bottom: 1em;">
 
-    <main class="container">
+        <hr style="margin-bottom: 1em;">
+
         <div class="row">
             <?php $i = 0 ?>
             <?php if (!empty($imoveis)): ?>
@@ -78,25 +81,6 @@
 
     <hr style="margin-bottom: 1em;">
 
-    <div class="rodape-baixo" id="footer">
-        <div class="row justify-content-center">
-            <div>
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <!-- Funcionamento -->
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div>
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-            </div>
-        </div>
-        <!--Fim do Rodapé-->
-    </div>
+    <?php include '_includes/footer.php'; ?>
 </body>
 </html>
