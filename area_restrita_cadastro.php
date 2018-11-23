@@ -295,11 +295,19 @@ require 'processos/load_imoveis.php';
                     </button>
                 </div>
                 <div class="modal-body">
+<<<<<<< HEAD
                     <form name="alterar_imovel" method="POST" action="processos/change_imoveis.php">
                         <input type="hidden" name="cod" id="targetCod">
                         <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
+=======
+                <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
+                        <input type="text" id="#" class="form-control" name="cod_im" placeholder="Código do Imóvel" size="50"
+>>>>>>> ce444436b794992fec9e63768f2470a5133d835f
                             required>
-
+                            <input type="text" id="#" class="form-control" name="" placeholder="Título" size="50"
+                            required>
+                        <input type="hidden" name="cod" id="targetCod">
+                        
                         <div class="row justify-content-center">
 
                             <select name="tipo" id="#" class="form-control form-control-md mt-3 mr-5" style="width: 20%; float: left;"
@@ -454,7 +462,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-8 mt-3">
-                                <textarea class="form-control" name="descricao" form="cadastro_imovel" id="#" required> Descrição </textarea>
+                                <textarea class="form-control" name="descricao" form="alterar_imovel" id="#" required> Descrição </textarea>
                             </div>
                         </div>
 
@@ -470,7 +478,11 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
+<<<<<<< HEAD
+                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
+=======
                                 <button type="submit" class="btn btn-primary" id="#" name=""> Alterar dados </button>
+>>>>>>> d062f2411c5d0cd83e41f16866d961b010c5288a
                             </div>
                         </div>
 
