@@ -295,7 +295,7 @@ require 'processos/load_imoveis.php';
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
+                    <form name="alterar_imovel" method="POST" action="processos/change_imoveis.php">
                         <input type="hidden" name="cod" id="targetCod">
                         <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
                             required>
@@ -321,10 +321,8 @@ require 'processos/load_imoveis.php';
                                 <option value="Rural">Rural</option>
                             </select>
 
-
                             <input type="text" class="form-control mt-3" placeholder="Bairro" style="width: 20%;" name="bairro"
                                 id="#" required>
-
                         </div>
 
                         <div class="row justify-content-center mt-3">
