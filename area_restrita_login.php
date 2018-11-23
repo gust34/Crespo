@@ -5,20 +5,13 @@
     <title> Área Restrita </title>
     <link rel="Stylesheet" href="css/bootstrap.min.css">
     <link rel="Stylesheet" href="css/style_restricted_area_1.css">
+    <link rel="Stylesheet" href="css/included_styles.css">
     <meta charset="utf-8">
 </head>
 <body>
     <!--Top bar-->
     <div class="section">
-        <div class="header">
-            <img src="img/logo.png" class="logo">
-            <div class="menu">
-                <a class="nav-link" href="index.html">HOME</a>
-                <a class="nav-link" href="#">IMÓVEIS</a>
-                <a class="nav-link" href="#">QUEM SOMOS</a>
-                <a class="nav-link" href="#contato">CONTATO</a>
-            </div>
-        </div>
+        <?php include '_includes/menu.php'; ?>
 
         <!--Fim top bar-->
 
@@ -54,25 +47,7 @@
 
 
     <!--Início Footer-->
-    <div class="rodape-baixo">
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-4">
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-5">
-                <!--Funcionamento-->
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-4 ml-5 pl-5 mt-4 mb-3">
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>                                 
-            </div>
-        </div>
-    </div>
+    <?php include '_includes/footer.php'; ?>
     <!--Fim do Footer-->
 </body>
 </html>

@@ -12,6 +12,7 @@ require 'processos/load_imoveis.php';
     <title> Área Restrita </title>
     <link rel="Stylesheet" href="css/bootstrap.min.css">
     <link rel="Stylesheet" href="css/style_restricted_area.css">
+    <link rel="Stylesheet" href="css/included_styles.css">
     <meta charset="utf-8">
 </head>
 <body>
@@ -21,17 +22,7 @@ require 'processos/load_imoveis.php';
         </div>
     </div>
     <!--Top bar-->   
-	<div class="section">
-        <div class="header">
-            <img src="img/logo.png" class="logo">
-            <div class="menu">
-                <a class="nav-link" href="index.php">HOME</a>
-                <a class="nav-link" href="#">IMÓVEIS</a>
-                <a class="nav-link" href="#">QUEM SOMOS</a>
-                <a class="nav-link" href="#contato">CONTATO</a>
-            </div>
-        </div>
-    </div>
+	<?php include '_includes/menu.php'; ?>
 
     <!-- Início da área da tabela -->
     <section class="section-table">
@@ -84,7 +75,7 @@ require 'processos/load_imoveis.php';
                                 <td><?=$imovel['IMO_TIPO']?></td>
                                 <td><?=$imovel['IMO_CATEGORIA']?></td>
                                 <td><?=$status?> </td>
-                                <td> <button type="submit" class="btn btn-primary btn-sm" style="" data-toggle="modal" data-target="#modaleditar">Editar</button>
+                                <td> <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditar" onclick="document.getElementById('targetCod').value = '<?=$imovel['IMO_COD']?>'">Editar</button>
                                 <button type="submit" class="btn btn-primary btn-sm" action="">Remover</button> <td>
                             </tr>
                             <?php endforeach ?>
@@ -121,7 +112,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Tipo </option>
                                 <option value="Casa">Casa</option>
                                 <option value="Apartamento">Apartamento</option>
-                                <option value="Barracão">Barracão</option>
+                                <option value="Barracao">Barracão</option>
                                 <option value="Comercial">Comercial</option>
                                 <option value="KitNet">Kitnet</option>
                             </select>
@@ -130,7 +121,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Categoria </option>
                                 <option value="Comprar">Comprar</option>
                                 <option value="Alugar">Alugar</option>
-                                <option value="Lançamentos">Lançamentos</option>
+                                <option value="Lancamentos">Lançamentos</option>
                                 <option value="Rural">Rural</option>
                             </select>
                             <input type="text" class="form-control mt-3" placeholder="Bairro" style="width: 20%;" name="bairro" id="#" required>
@@ -293,23 +284,24 @@ require 'processos/load_imoveis.php';
     </div>
 
     <!--MODAL DE ALTERAR **NÃO FINALIZADO**-->
-    <div class="modal fade bd-example-modal-lg" id="modalcadastro" tabindex="0" role="dialog" aria-labelledby="modalcadastro"
+    <div class="modal fade bd-example-modal-lg" id="modaleditar" tabindex="0" role="dialog" aria-labelledby="modalcadastro"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalcadastro">Cadastro de Imóveis</h5>
+                    <h5 class="modal-title" id="modalcadastro">Alteração de dados - Preencha os campos a serem alterados</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="alterar_imovel" method="POST" action="processos/alterando.php">
+                <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
                         <input type="text" id="#" class="form-control" name="cod_im" placeholder="Código do Imóvel" size="50"
                             required>
                             <input type="text" id="#" class="form-control" name="" placeholder="Título" size="50"
                             required>
-
+                        <input type="hidden" name="cod" id="targetCod">
+                        
                         <div class="row justify-content-center">
 
                             <select name="tipo" id="#" class="form-control form-control-md mt-3 mr-5" style="width: 20%; float: left;"
@@ -317,7 +309,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Tipo </option>
                                 <option value="Casa">Casa</option>
                                 <option value="Apartamento">Apartamento</option>
-                                <option value="Barracão">Barracão</option>
+                                <option value="Barracao">Barracão</option>
                                 <option value="Comercial">Comercial</option>
                                 <option value="KitNet">Kitnet</option>
                             </select>
@@ -482,7 +474,11 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
+=======
+                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar dados </button>
+>>>>>>> d062f2411c5d0cd83e41f16866d961b010c5288a
                             </div>
                         </div>
 
@@ -497,24 +493,7 @@ require 'processos/load_imoveis.php';
     </div>
 
     <!--Footer-->
-    <div class="rodape-baixo">
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-4">
-                <img src="img/logo.png" class="logo-rodape">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-3 ml-5 pl-5 mt-5">
-                <span class="ml-4"> Horário de Funcionamento </span><br>
-                <span class="text-center"> Segunda à sexta das 06:00 às 17:30 </span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-4 ml-5 pl-5 mt-4 mb-3">
-                <span class="text-center ml-3"> DESENVOLVIDO POR I AM IAN WEB DESIGN </span>
-            </div>
-        </div>
-    </div>
+    <?php include '_includes/footer.php'; ?>
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

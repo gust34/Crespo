@@ -1,0 +1,62 @@
+@media only screen and (max-width: 992px) {
+    .barra .btn {
+        margin-left: calc((100% / 12) * 4);
+    }
+    hr {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 993px) {
+    .barra {
+        margin-left: calc((100% / 12));
+    }
+    .barra .btn {
+        height: 2.25em;
+    }
+
+    hr.col-12 {
+        margin-left: -1%;
+        width: 120% !important;
+    }
+}
+
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+}
+a {
+    color: inherit;
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.no-margin {
+    margin: 0;
+}
+
+/* Cada elemento da lista de imoveis */
+.price {
+    background: yellow;
+}
+
+.item:hover {
+    background: #EEE;
+    cursor: pointer;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: flex-start;
+}
+.detalhes span {
+        font-size: 0.8em;
+    width: calc((100% / 12) * 4);
+    text-align: center;
+    line-height: 20px;
+    margin-top: 5px;
+}
