@@ -10,5 +10,5 @@ if (!is_numeric(@$_GET['cod']) or empty($_GET['cod'])) {
 } else {
     $sql = "SELECT * FROM Imoveis WHERE IMO_COD='{$_GET['cod']}' LIMIT 1";
     $result = mysqli_query($conexao, $sql);
-    $resultado = mysqli_fetch_assoc($result);
+    $imovel = mysqli_fetch_assoc($result);
 }

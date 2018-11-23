@@ -18,8 +18,7 @@ try {
         $query .= ' AND IMO_TIPO = @tipoVAR';
         $vars['@tipoVAR'] = $_POST['tipo'];
     }
-
-
+    
     $con = new Connection('bdcrespo');
     $imoveis = $con->dbExec($query, $vars);
 

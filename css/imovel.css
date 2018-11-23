@@ -1,0 +1,32 @@
+.price {
+    float: right;
+    background: yellow;
+    padding: 0 1em;
+}
+
+#dadosImovel .col-12.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+#dadosImovel .dados:first-child {
+    line-height: 1.5em;
+}
+#dadosImovel .dados:first-child .price {
+    margin-top: -1.5em;
+}
+
+.no-lateral-margin {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn.col-8 {
+    margin-left: calc((100% / 12) * 2);
+}
+

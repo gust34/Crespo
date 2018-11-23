@@ -295,15 +295,9 @@ require 'processos/load_imoveis.php';
                     </button>
                 </div>
                 <div class="modal-body">
-<<<<<<< HEAD
                     <form name="alterar_imovel" method="POST" action="processos/change_imoveis.php">
                         <input type="hidden" name="cod" id="targetCod">
                         <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
-=======
-                <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
-                        <input type="text" id="#" class="form-control" name="cod_im" placeholder="Código do Imóvel" size="50"
->>>>>>> ce444436b794992fec9e63768f2470a5133d835f
-                            required>
                             <input type="text" id="#" class="form-control" name="" placeholder="Título" size="50"
                             required>
                         <input type="hidden" name="cod" id="targetCod">
@@ -478,11 +472,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
-<<<<<<< HEAD
-                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
-=======
                                 <button type="submit" class="btn btn-primary" id="#" name=""> Alterar dados </button>
->>>>>>> d062f2411c5d0cd83e41f16866d961b010c5288a
                             </div>
                         </div>
 
