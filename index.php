@@ -125,6 +125,9 @@
                     <?php $i++; ?>
                 <?php endwhile ?>
             </div>
+            <div class="btn-row">
+                <a type="button" href="lista_imoveis.php" id="verMais" class="btn btn-primary">Ver Mais</a>
+            </div>
         </div>
     </div>
 

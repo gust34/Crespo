@@ -1,3 +1,18 @@
+.btn-row {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 90%;
+}
+a#verMais {
+    background: yellow;
+    color: black;
+    border: none;
+    margin-top: 1em;
+}
+
+
+
+
 html, body {
     overflow-x: hidden;
     height: 100%;

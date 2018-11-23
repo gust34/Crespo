@@ -2,7 +2,7 @@
 <!Doctype html>
 <html>
 <head>
-    <title> Crespo Incorporadora </title>
+    <title>Crespo Incorporadora</title>
     <meta charset="utf-8">
     <!--CSS reset e Bootstrap-->
     <link rel="Stylesheet" href="css/reset.css">
