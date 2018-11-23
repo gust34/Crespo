@@ -121,7 +121,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Tipo </option>
                                 <option value="Casa">Casa</option>
                                 <option value="Apartamento">Apartamento</option>
-                                <option value="Barracão">Barracão</option>
+                                <option value="Barracao">Barracão</option>
                                 <option value="Comercial">Comercial</option>
                                 <option value="KitNet">Kitnet</option>
                             </select>
@@ -130,7 +130,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Categoria </option>
                                 <option value="Comprar">Comprar</option>
                                 <option value="Alugar">Alugar</option>
-                                <option value="Lançamentos">Lançamentos</option>
+                                <option value="Lancamentos">Lançamentos</option>
                                 <option value="Rural">Rural</option>
                             </select>
                             <input type="text" class="form-control mt-3" placeholder="Bairro" style="width: 20%;" name="bairro" id="#" required>

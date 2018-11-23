@@ -17,58 +17,62 @@
     </header>
 
     <div class="container">
-        <div class="barra row">
+        <form class="barra row" method="post">
             <div class="col-12 col-lg-3" style="margin-bottom: 1em;">
-                <select class="tipo form-control">
+                <select name="tipo" class="tipo form-control">
                     <option value="" selected disabled> Tipo </option>
-                    <option value="">Casa</option>
-                    <option value="">Apartamento</option>
-                    <option value="">Barracão</option>
-                    <option value="">Comercial</option>
-                    <option value="">Kitnet</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Barracao">Barracão</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="KitNet">Kitnet</option>
                 </select>
             </div>
             <div class="col-12 col-lg-6">
-                <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="#" style="margin-bottom: 1em;">
+                <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="nome" style="margin-bottom: 1em;">
             </div>
-            <button type="button" class="btn btn-primary col-4 col-lg-1" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
-        </div>
+            <button type="submit" class="btn btn-primary col-4 col-lg-1" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
+        </form>
     </div>
     <hr style="margin-bottom: 1em;">
 
     <main class="container">
         <div class="row">
             <?php $i = 0 ?>
-            <?php foreach ($imoveis as $key => $imovel): ?>
-            <?php $i++; ?>
-            <a href="imovel.php?cod=<?=$imovel['IMO_COD']?>" class="item col-12 col-lg-4">
-                <div class="row align-items-center">
-                    <img src="img/casateste.jpg" class="col-6">
-                    <div class="col-6 truncate">
-                        <strong title="Nome"><?=$imovel['IMO_NOME']?></strong>
-                        <p><?= $imovel['IMO_BAIRRO'] ?></p>
-                        <?php if(empty($imovel['IMO_PRECO_VENDA'])): ?>
-                        <div class="row justify-content-center">
-                            <p class="col-12 price">Aluguel R$<?=$imovel['IMO_PRECO_ALUGUEL']?></p>
+            <?php if (!empty($imoveis)): ?>
+                <?php foreach ($imoveis as $key => $imovel): ?>
+                <?php $i++; ?>
+                <a href="imovel.php?cod=<?=$imovel['IMO_COD']?>" class="item col-12 col-lg-4">
+                    <div class="row align-items-center">
+                        <img src="img/casateste.jpg" class="col-6">
+                        <div class="col-6 truncate">
+                            <strong title="Nome"><?=$imovel['IMO_NOME']?></strong>
+                            <p><?= $imovel['IMO_BAIRRO'] ?></p>
+                            <?php if(empty($imovel['IMO_PRECO_VENDA'])): ?>
+                            <div class="row justify-content-center">
+                                <p class="col-12 price">Aluguel R$<?=$imovel['IMO_PRECO_ALUGUEL']?></p>
+                            </div>
+                            <?php else: ?>
+                            <div class="row justify-content-center">
+                                <p class="col-12 price">Venda R$<?=$imovel['IMO_PRECO_VENDA']?></p>
+                            </div>
+                            <?php endif ?>
                         </div>
-                        <?php else: ?>
-                        <div class="row justify-content-center">
-                            <p class="col-12 price">Venda R$<?=$imovel['IMO_PRECO_VENDA']?></p>
+                    </div>
+                    <hr class="no-margin">
+                    <div class="row">
+                        <div class="detalhes container-fluid">
+                            <span>Dormitorios <br> <?= $imovel['IMO_QUARTOS'] ?></span>
+                            <span>Banheiros <br> <?= $imovel['IMO_BANHEIROS'] ?></span>
+                            <span>Área <br> <?= $imovel['IMO_AREA_TOTAL'] ?>m<sup>2</sup></span>
                         </div>
-                        <?php endif ?>
                     </div>
-                </div>
-                <hr class="no-margin">
-                <div class="row">
-                    <div class="detalhes container-fluid">
-                        <span>Dormitorios <br> <?= $imovel['IMO_QUARTOS'] ?></span>
-                        <span>Banheiros <br> <?= $imovel['IMO_BANHEIROS'] ?></span>
-                        <span>Área <br> <?= $imovel['IMO_AREA_TOTAL'] ?>m<sup>2</sup></span>
-                    </div>
-                </div>
-            </a>
-            <hr style="margin-bottom: 1em;" <?= $i % 3 == 0 ? 'class=col-12' : ''?>>
-            <?php endforeach ?>
+                </a>
+                <hr style="margin-bottom: 1em;" <?= $i % 3 == 0 ? 'class=col-12' : ''?>>
+                <?php endforeach ?>
+            <?php else: ?>
+                <h3>Nada encontrado</h3>
+            <?php endif ?>
         </div>
     </main>
 

@@ -58,24 +58,24 @@
         <div class="busca">
             <div class="categorias">
             </div>
-            <div class="barra">
+            <form class="barra" method="post" action="lista_imoveis.php">
                 <div>
-                    <select class="tipo form-control">
+                    <select name="tipo" class="tipo form-control">
                         <option value="" selected disabled> Tipo </option>
-                        <option value="">Casa</option>
-                        <option value="">Apartamento</option>
-                        <option value="">Barracão</option>
-                        <option value="">Comercial</option>
-                        <option value="">Kitnet</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Barracao">Barracão</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="KitNet">Kitnet</option>
                     </select>
                 </div>
                 <div>
-                    <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="#">
+                    <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="nome">
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
+                    <button type="submit" class="btn btn-primary" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="imoveis-destaque">
