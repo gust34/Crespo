@@ -75,7 +75,7 @@ require 'processos/load_imoveis.php';
                                 <td><?=$imovel['IMO_TIPO']?></td>
                                 <td><?=$imovel['IMO_CATEGORIA']?></td>
                                 <td><?=$status?> </td>
-                                <td> <button type="submit" class="btn btn-primary btn-sm" style="" data-toggle="modal" data-target="#modaleditar">Editar</button>
+                                <td> <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditar" onclick="document.getElementById('targetCod').value = '<?=$imovel['IMO_COD']?>'">Editar</button>
                                 <button type="submit" class="btn btn-primary btn-sm" action="">Remover</button> <td>
                             </tr>
                             <?php endforeach ?>
@@ -289,13 +289,14 @@ require 'processos/load_imoveis.php';
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalcadastro">Cadastro de Imóveis</h5>
+                    <h5 class="modal-title" id="modalcadastro">Alteração de dados - Preencha os campos a serem alterados</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
+                        <input type="hidden" name="cod" id="targetCod">
                         <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
                             required>
 
@@ -306,7 +307,7 @@ require 'processos/load_imoveis.php';
                                 <option value="" selected disabled> Tipo </option>
                                 <option value="Casa">Casa</option>
                                 <option value="Apartamento">Apartamento</option>
-                                <option value="Barracão">Barracão</option>
+                                <option value="Barracao">Barracão</option>
                                 <option value="Comercial">Comercial</option>
                                 <option value="KitNet">Kitnet</option>
                             </select>
@@ -471,7 +472,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
-                                <button type="submit" class="btn btn-primary" id="#" name=""> Cadastrar Imóvel </button>
+                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar dados </button>
                             </div>
                         </div>
 

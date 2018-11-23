@@ -61,11 +61,11 @@
 }
 .rodape-baixo div.row:last-child {
     margin-bottom: 1em;
+    text-align: center;
 }
 .rodape-baixo div.row {
     margin: 2em 0;
 }
-
 .logo {
     display: flex;
     width: 90px;
