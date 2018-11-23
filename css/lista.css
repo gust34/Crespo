@@ -16,6 +16,9 @@
     .barra .btn {
         margin-left: calc((100% / 12) * 4);
     }
+    hr {
+        width: 100%;
+    }
 }
 @media only screen and (min-width: 993px) {
     .barra {
