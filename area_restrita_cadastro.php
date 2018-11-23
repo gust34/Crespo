@@ -304,8 +304,10 @@ require 'processos/load_imoveis.php';
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="cadastro_imovel" method="POST" action="processos/change_imoveis.php">
-                        <input type="text" id="#" class="form-control" name="nome" placeholder="Título" size="50"
+                    <form name="alterar_imovel" method="POST" action="processos/alterando.php">
+                        <input type="text" id="#" class="form-control" name="cod_im" placeholder="Código do Imóvel" size="50"
+                            required>
+                            <input type="text" id="#" class="form-control" name="" placeholder="Título" size="50"
                             required>
 
                         <div class="row justify-content-center">
@@ -464,7 +466,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-8 mt-3">
-                                <textarea class="form-control" name="descricao" form="cadastro_imovel" id="#" required> Descrição </textarea>
+                                <textarea class="form-control" name="descricao" form="alterar_imovel" id="#" required> Descrição </textarea>
                             </div>
                         </div>
 
@@ -480,7 +482,7 @@ require 'processos/load_imoveis.php';
 
                         <div class="row justify-content-center">
                             <div class="col-sm-12 mt-3 text-center">
-                                <button type="submit" class="btn btn-primary" id="#" name=""> Cadastrar Imóvel </button>
+                                <button type="submit" class="btn btn-primary" id="#" name=""> Alterar Imóvel </button>
                             </div>
                         </div>
 
