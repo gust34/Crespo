@@ -4,6 +4,7 @@ require 'Autoload.php';
 use Connection\Connection;
 unset($_SESSION['Erro']);
 
+
 /* DEBUG */
 // echo '<pre>';
 // print_r($_POST);
@@ -41,8 +42,8 @@ if(!empty($_SESSION['Erro'])) {
     header("Location: ../area_restrita_cadastro.php");
 } else {
     // Inserir valores no banco de dados
-    $query = 'INSERT INTO Imoveis (IMO_NOME, IMO_TIPO, IMO_CATEGORIA, IMO_BAIRRO, IMO_SUITES, IMO_QUARTOS, IMO_AREA_TOTAL, IMO_AREA_CONSTRUIDA, IMO_REFORMAS, IMO_VAGAS, IMO_BANHEIROS, IMO_CONDOMINIO, IMO_ENDERECO_CONDOMINIO, IMO_CARACTERISTICAS, IMO_DESCRICAO, IMO_PRECO_VENDA, IMO_PRECO_ALUGUEL, IMO_FOTOS)';
-    $query .= 'VALUES (@nomeVAR, @tipoVAR, @categVAR, @bairroVAR, @suitesVAR, @quartosVAR, @areaTotVAR, @areaConstVAR, @reformasVAR, @vagasVAR, @banVAR, @condominioVAR, @enderecoCondVAR, @caracsVAR, @descVAR, @precoVendaVAR, @precoAluguelVAR, @imgVAR)';
+    $query = 'INSERT INTO Imoveis (IMO_NOME, IMO_TIPO, IMO_CATEGORIA, IMO_BAIRRO, IMO_SUITES, IMO_QUARTOS, IMO_AREA_TOTAL, IMO_AREA_CONSTRUIDA, IMO_REFORMAS, IMO_VAGAS, IMO_BANHEIROS, IMO_CONDOMINIO, IMO_ENDERECO_CONDOMINIO, IMO_CARACTERISTICAS, IMO_DESCRICAO, IMO_PRECO, IMO_A_VENDA, IMO_DESTAQUE, IMO_FOTOS)';
+    $query .= 'VALUES (@nomeVAR, @tipoVAR, @categVAR, @bairroVAR, @suitesVAR, @quartosVAR, @areaTotVAR, @areaConstVAR, @reformasVAR, @vagasVAR, @banVAR, @condominioVAR, @enderecoCondVAR, @caracsVAR, @descVAR, @precoVendaVAR, @avendaVAR, @destVAR, @imgVAR)';
 
     foreach ($_POST['cad'] as $key => $value) {
         $_POST['cad'][$key] = utf8_encode($value);
@@ -64,8 +65,9 @@ if(!empty($_SESSION['Erro'])) {
         '@enderecoCondVAR' => $_POST['endereco_condominio'],
         '@caracsVAR' => serialize($_POST['cad']),
         '@descVAR' => utf8_encode($_POST['descricao']),
-        '@precoVendaVAR' => str_replace(',', '.', $_POST['preco_venda']),
-        '@precoAluguelVAR' => str_replace(',', '.', $_POST['preco_aluguel']),
+        '@precoVendaVAR' => str_replace(',', '.', $_POST['preco']),
+        '@avendaVAR' => str_replace(',', '.', $_POST['a_venda']),
+        '@destVAR' => $_POST['destaque'],
         '@imgVAR' => serialize($imgName)
     );
 
