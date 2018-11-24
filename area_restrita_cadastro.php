@@ -76,7 +76,7 @@ require 'processos/load_imoveis.php';
                                 <td><?=$imovel['IMO_CATEGORIA']?></td>
                                 <td><?=$status?> </td>
                                 <td> <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditar" onclick="document.getElementById('targetCod').value = '<?=$imovel['IMO_COD']?>'">Editar</button>
-                                <button type="submit" class="btn btn-primary btn-sm" action="">Remover</button> <td>
+                                <a type="submit" class="btn btn-primary btn-sm" href="processos/excluir.php?cod=<?=$imovel['IMO_COD']?>">Remover</a> <td>
                             </tr>
                             <?php endforeach ?>
                         <?php else: ?>
