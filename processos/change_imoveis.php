@@ -9,12 +9,12 @@ try {
 
     if(!empty($_POST['nome'])) {
         $query .= " IMO_NOME = @nomeVAR, ";
-        $vars['@nomeVAR'] = $_POST['nome']; 
+        $vars['@nomeVAR'] = $_POST['nome'];
     }
 
     if(!empty($_POST['tipo'])) {
         $query .= " IMO_TIPO = @tipoVAR, ";
-        $vars['@tipoVAR'] = $_POST['tipo']; 
+        $vars['@tipoVAR'] = $_POST['tipo'];
     }
 
     if(!empty($_POST['cad'])) {
