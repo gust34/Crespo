@@ -10,7 +10,15 @@ a#verMais {
     margin-top: 1em;
 }
 
+.parallax {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position:center;
+}
 
+.red {
+    background-color: red;
+}
 
 
 html, body {
