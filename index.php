@@ -88,32 +88,21 @@
                         <div class="imoveis-row">
                     <?php endif ?>
                     <?php $fotos = unserialize($linha['IMO_FOTOS']); ?>
-                    <?php if(empty($linha['IMO_PRECO_VENDA'])): ?>
-                        <div class='imovel'>
-                            <h1><?=$linha['IMO_BAIRRO']?></h1>
-                            
-                            <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
-                            <span class='valor'>ALUGUEL <?=$linha['IMO_PRECO_ALUGUEL']?></span>
-                            <div class='detalhes'>
-                                <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
-                                <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
-                                <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
-                            </div>
+                    <div class='imovel'>
+                        <h1><?=$linha['IMO_BAIRRO']?></h1>
+                        
+                        <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
+                        <?php if($linha['IMO_A_VENDA']): ?>
+                        <span class='valor'>VENDA <?=$linha['IMO_PRECO']?></span>
+                        <?php else: ?>
+                        <span class='valor'>ALUGUEL <?=$linha['IMO_PRECO']?></span>
+                        <?php endif ?>
+                        <div class='detalhes'>
+                            <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
+                            <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
+                            <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
                         </div>
-                    <?php else: ?>
-                        <div class='imovel'>
-                            <h1><?=$linha['IMO_BAIRRO']?></h1>
-                            <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
-
-                            <span class='valor'>VENDA <?=$linha['IMO_PRECO_VENDA']?></span>
-
-                            <div class='detalhes'>
-                                <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
-                                <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
-                                <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
-                            </div>
-                        </div>
-                    <?php endif ?>
+                    </div>
                     <?php $i++; ?>
                 <?php endwhile ?>
             </div>

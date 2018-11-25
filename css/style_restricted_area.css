@@ -18,7 +18,9 @@ html, body {
   font-family: sans-serif;
   padding-top: 8%
 }
-
+.oldPhoto {
+  width: 100px;
+}
 
 .table1 {
   width: 100%

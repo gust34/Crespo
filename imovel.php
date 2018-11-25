@@ -31,7 +31,7 @@
         </ol>
         <div class="carousel-inner">
             <?php foreach (unserialize($imovel['IMO_FOTOS']) as $key => $value): ?>
-            <div class="carousel-item active">
+            <div class="carousel-item <?=$key == 'foto0' ? 'active' : ''?>">
                 <img class="d-block w-100" src="processos/_uploads/<?=$value?>">
             </div>
             <?php endforeach ?>
@@ -52,10 +52,10 @@
                 <p class="dados row no-margin">
                     <strong class="col-8 truncate"><?=$imovel['IMO_NOME']?></strong> <br>
                     <span class="col-8 truncate"><?=$imovel['IMO_BAIRRO']?></span>
-                    <?php if (empty($imovel['IMO_PRECO_VENDA'])): ?>
-                    <span class="col-4 price">Aluguel R$<?=$imovel['IMO_PRECO_ALUGUEL']?></span>
+                    <?php if ($imovel['IMO_A_VENDA']): ?>
+                    <span class="col-4 price">Aluguel R$<?=$imovel['IMO_PRECO']?></span>
                     <?php else: ?>
-                    <span class="col-4 price">Venda R$<?=$imovel['IMO_PRECO_VENDA']?></span>
+                    <span class="col-4 price">Venda R$<?=$imovel['IMO_PRECO']?></span>
                     <?php endif ?>
                 </p>
                 <p>

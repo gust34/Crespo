@@ -51,13 +51,13 @@
                         <div class="col-6 truncate">
                             <strong title="Nome"><?=$imovel['IMO_NOME']?></strong>
                             <p><?= $imovel['IMO_BAIRRO'] ?></p>
-                            <?php if(empty($imovel['IMO_PRECO_VENDA'])): ?>
+                            <?php if($imovel['IMO_A_VENDA']): ?>
                             <div class="row justify-content-center">
-                                <p class="col-12 price">Aluguel R$<?=$imovel['IMO_PRECO_ALUGUEL']?></p>
+                                <p class="col-12 price">Venda R$<?=$imovel['IMO_PRECO']?></p>
                             </div>
                             <?php else: ?>
                             <div class="row justify-content-center">
-                                <p class="col-12 price">Venda R$<?=$imovel['IMO_PRECO_VENDA']?></p>
+                                <p class="col-12 price">Aluguel R$<?=$imovel['IMO_PRECO']?></p>
                             </div>
                             <?php endif ?>
                         </div>
