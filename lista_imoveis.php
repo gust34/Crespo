@@ -17,7 +17,7 @@
         <?php include '_includes/menu.php'; ?>
     </div>
     
-    <hr style="margin-bottom: 1em;">
+    <hr style="margin-bottom: 1em; margin-top: 0" class="col-12">
     
     <main class="container" style="margin-top: 70px;">
         <hr style="margin-bottom: 1em;">
@@ -60,7 +60,7 @@
             </form>
         </div>
 
-        <hr style="margin-bottom: 1em;">
+        <hr style="margin-bottom: 1em;" class="col-12">
 
         <div class="row" id="imoveisSelecionados">
             <?php $i = 0 ?>
@@ -101,7 +101,7 @@
         </div>
     </main>
 
-    <hr style="margin-bottom: 1em;">
+    <hr style="margin-bottom: 1em;" class="col-12">
 
     <?php include '_includes/footer.php'; ?>
     <script type="text/javascript" src="js/ajax.js"></script>

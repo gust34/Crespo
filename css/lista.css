@@ -28,8 +28,11 @@
         height: 2.25em;
     }
 
+    hr:not(.col-12) {
+        display: none;
+    }
     hr.col-12 {
-        margin-left: -1%;
+        margin-left: -10%;
         width: 120% !important;
     }
 }

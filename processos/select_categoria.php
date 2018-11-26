@@ -24,7 +24,7 @@ try {
             unset($back);
         }
 
-        $i = 1;
+        $i = 0;
 
         foreach ($imoveis as $key => $imovel) {
             $fotos = unserialize($imovel['IMO_FOTOS']);
@@ -49,8 +49,7 @@ try {
                         <span>Dormitorios <br>'.$imovel['IMO_QUARTOS'].'</span>
                         <span>Banheiros <br>'.$imovel['IMO_BANHEIROS'].'</span>
                         <span>Área <br>'.$imovel['IMO_AREA_TOTAL'].'m<sup>2</sup></span>
-                    </div>
-                </div>';
+                    </div>';
             } elseif ($_POST['pag'] == 'lista') {
                 echo '<a href="imovel.php?cod='.$imovel['IMO_COD'].'" class="item col-12 col-lg-4">
                     <div class="row align-items-center">
@@ -80,7 +79,7 @@ try {
                     </div>
                 </a>
                 <hr style="margin-bottom: 1em;"';
-                echo $i % 3 == 0 ? 'class=col-12>' : '>';
+                echo ($i % 3 == 0 and $i != 0) ? 'class="col-12">' : '>';
             }
             $i++;
         }
