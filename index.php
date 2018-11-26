@@ -48,8 +48,24 @@
 
     <div class="section imoveis">
         <div class="busca">
-            <div class="categorias">
-            </div>
+            <ul class="nav nav-pills justify-content-center" id="categorias" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="selectCategoria('Geral', 'index')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-home" aria-selected="true">Geral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Comprar', 'index')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-profile" aria-selected="false">Comprar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Alugar', 'index')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Alugar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Rural', 'index')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Rural</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Lancamentos', 'index')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Lançamentos</a>
+                </li>
+            </ul>
             <form class="barra" method="post" action="lista_imoveis.php">
                 <div>
                     <select name="tipo" class="tipo form-control">
@@ -62,6 +78,7 @@
                     </select>
                 </div>
                 <div>
+                    <input type="hidden" name="categoria" id="txtCategoria" value="Geral">
                     <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="nome">
                 </div>
                 <div>
@@ -71,42 +88,43 @@
         </div>
 
         <div class="imoveis-destaque">
-            <div class="imoveis-row">
-                <?php
-                session_start();
-                include "processos/conexao.php";
-                $sql = $conexao->prepare("SELECT * FROM Imoveis WHERE IMO_DESTAQUE='1' AND IMO_ATIVO = '1' LIMIT 6");
-                $sql->execute();
-                $resultado = $sql->get_result();
-                // Contador de itens em cada row
-                $i = 0;
-                ?>
+            <div id="imoveisSelecionados">
+                <div class="imoveis-row">
+                    <?php
+                    include "processos/conexao.php";
+                    $sql = $conexao->prepare("SELECT * FROM Imoveis WHERE IMO_DESTAQUE='1' AND IMO_ATIVO = '1' LIMIT 6");
+                    $sql->execute();
+                    $resultado = $sql->get_result();
+                    // Contador de itens em cada row
+                    $i = 0;
+                    ?>
 
-                <?php while($linha = $resultado->fetch_assoc()): ?>
-                    <?php if ($i % 3 == 0): ?>
-                        </div>
-                        <div class="imoveis-row">
-                    <?php endif ?>
-                    <?php $fotos = unserialize($linha['IMO_FOTOS']); ?>
-                    <div class='imovel'>
-                        <h1><?=$linha['IMO_BAIRRO']?></h1>
-                        
-                        <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
-                        <?php if($linha['IMO_A_VENDA']): ?>
-                        <span class='valor'>VENDA <?=$linha['IMO_PRECO']?></span>
-                        <?php else: ?>
-                        <span class='valor'>ALUGUEL <?=$linha['IMO_PRECO']?></span>
+                    <?php while($linha = $resultado->fetch_assoc()): ?>
+                        <?php if ($i % 3 == 0): ?>
+                            </div>
+                            <div class="imoveis-row">
                         <?php endif ?>
-                        <div class='detalhes'>
-                            <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
-                            <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
-                            <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
-                        </div>
-                    </div>
-                    <?php $i++; ?>
-                <?php endwhile ?>
+                        <?php $fotos = unserialize($linha['IMO_FOTOS']); ?>
+                        <a class='imovel' href="imovel.php?cod=<?=$linha['IMO_COD']?>">
+                            <h1><?=$linha['IMO_BAIRRO']?></h1>
+                            
+                            <img src='img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$fotos['foto0']?>&size=300x200'>
+                            <?php if($linha['IMO_A_VENDA']): ?>
+                            <span class='valor'>VENDA R$<?=str_replace('.', ',', $linha['IMO_PRECO'])?></span>
+                            <?php else: ?>
+                            <span class='valor'>ALUGUEL R$<?=str_replace('.', ',', $linha['IMO_PRECO'])?></span>
+                            <?php endif ?>
+                            <div class='detalhes'>
+                                <span>Dormitorios <br><?=$linha['IMO_QUARTOS']?></span>
+                                <span>Banheiros <br><?=$linha['IMO_BANHEIROS']?></span>
+                                <span>Área <br><?=$linha['IMO_AREA_TOTAL']?>m<sup>2</sup></span>
+                            </div>
+                        </a>
+                        <?php $i++; ?>
+                    <?php endwhile ?>
+                </div>
             </div>
-            <div class="btn-row">
+            <div class="col-12">
                 <a type="button" href="lista_imoveis.php" id="verMais" class="btn btn-primary">Ver Mais</a>
             </div>
         </div>
@@ -172,9 +190,7 @@
                         <span style="font-size:20pt; color: black;">
                             <i class="far fa-envelope"></i> <Br>                                                        
                         <span style="font-size:15pt;"> xxxxxxxx@xxxxx.com </span>
-                        </div>
-
-                        
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -182,6 +198,7 @@
     </div>
 
     <?php include '_includes/footer.php'; ?>
+    <script type="text/javascript" src="js/ajax.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

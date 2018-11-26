@@ -21,26 +21,48 @@
     
     <main class="container" style="margin-top: 70px;">
         <hr style="margin-bottom: 1em;">
-        <form class="barra row" method="post">
-            <div class="col-12 col-lg-3" style="margin-bottom: 1em;">
-                <select name="tipo" class="tipo form-control">
-                    <option value="" selected disabled> Tipo </option>
-                    <option value="Casa">Casa</option>
-                    <option value="Apartamento">Apartamento</option>
-                    <option value="Barracao">Barracão</option>
-                    <option value="Comercial">Comercial</option>
-                    <option value="KitNet">Kitnet</option>
-                </select>
-            </div>
-            <div class="col-12 col-lg-6">
-                <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="nome" style="margin-bottom: 1em;">
-            </div>
-            <button type="submit" class="btn btn-primary col-4 col-lg-1" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
-        </form>
+
+        <div class="busca">
+            <ul class="nav nav-pills justify-content-center" id="categorias" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="selectCategoria('Geral', 'lista')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-home" aria-selected="true">Geral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Comprar', 'lista')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-profile" aria-selected="false">Comprar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Alugar', 'lista')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Alugar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Rural', 'lista')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Rural</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" onclick="selectCategoria('Lancamentos', 'lista')" data-toggle="pill" href="#!" role="tab" aria-controls="pills-contact" aria-selected="false">Lançamentos</a>
+                </li>
+            </ul>
+            <form class="barra row" method="post">
+                <div class="col-12 col-lg-3" style="margin-bottom: 1em;">
+                    <select name="tipo" class="tipo form-control">
+                        <option value="" selected disabled> Tipo </option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Barracao">Barracão</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="KitNet">Kitnet</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <input type="hidden" name="categoria" id="txtCategoria" value="Geral">
+                    <input class="barra-busca form-control" type="text" placeholder="Digite condomínio, região ou bairro." name="nome" style="margin-bottom: 1em;">
+                </div>
+                <button type="submit" class="btn btn-primary col-4 col-lg-1" style="background: yellow; color: black; border: none"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
 
         <hr style="margin-bottom: 1em;">
 
-        <div class="row">
+        <div class="row" id="imoveisSelecionados">
             <?php $i = 0 ?>
             <?php if (!empty($imoveis)): ?>
                 <?php foreach ($imoveis as $key => $imovel): ?>
@@ -74,7 +96,7 @@
                 <hr style="margin-bottom: 1em;" <?= $i % 3 == 0 ? 'class=col-12' : ''?>>
                 <?php endforeach ?>
             <?php else: ?>
-                <h3>Nada encontrado</h3>
+                <h4>Nenhum imóvel foi encontrado</h4>
             <?php endif ?>
         </div>
     </main>
@@ -82,5 +104,9 @@
     <hr style="margin-bottom: 1em;">
 
     <?php include '_includes/footer.php'; ?>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

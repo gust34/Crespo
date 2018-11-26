@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (empty($_SESSION['user'])) {
-    header('Location: index.php');
+    header('Location: login.php');
     exit();
 }
 require 'processos/load_imoveis.php';
@@ -189,18 +189,18 @@ require 'processos/load_imoveis.php';
                                 <h6 class=""> Características </h6>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad[1]" placeholder="Característica 1" required> 
+                                        <input type="text" class="form-control" id="#" name="cad[1]" placeholder="Característica 1"> 
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad[2]" placeholder="Característica 2" required>
+                                        <input type="text" class="form-control" id="#" name="cad[2]" placeholder="Característica 2">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="#" name="cad[3]" placeholder="Característica 3" required> 
+                                        <input type="text" class="form-control" id="#" name="cad[3]" placeholder="Característica 3"> 
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="#" name="cad[4]" placeholder="Característica 4" required>
+                                        <input type="text" class="form-control" id="#" name="cad[4]" placeholder="Característica 4">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%; ">
@@ -426,18 +426,18 @@ require 'processos/load_imoveis.php';
                                 <h6 class=""> Características </h6>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="altCad1" name="cad[1]" placeholder="Característica 1" required> 
+                                        <input type="text" class="form-control" id="altCad1" name="cad[1]" placeholder="Característica 1"> 
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="altCad2" name="cad[2]" placeholder="Característica 2" required>
+                                        <input type="text" class="form-control" id="altCad2" name="cad[2]" placeholder="Característica 2">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%;">
                                     <div class="col-sm-4 offset-md-2">
-                                        <input type="text" class="form-control" id="altCad3" name="cad[3]" placeholder="Característica 3" required> 
+                                        <input type="text" class="form-control" id="altCad3" name="cad[3]" placeholder="Característica 3"> 
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="altCad4" name="cad[4]" placeholder="Característica 4" required>
+                                        <input type="text" class="form-control" id="altCad4" name="cad[4]" placeholder="Característica 4">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center P-0" style="margin-left: -23%; margin-bottom: 3%; ">

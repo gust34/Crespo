@@ -1,3 +1,17 @@
+
+#categorias {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em !important;
+    text-align: center;
+}
+
+#categorias li a {
+    background: none !important;
+    color: black !important;
+}
+#categorias li a[aria-selected=true] {
+    border-top: 0.35em #f1ea22 solid;
+}
 @media only screen and (max-width: 992px) {
     .barra .btn {
         margin-left: calc((100% / 12) * 4);

@@ -10,6 +10,12 @@ try {
     $query = 'SELECT * FROM Imoveis WHERE IMO_ATIVO = TRUE';
     $vars = array();
 
+
+
+    if (!empty($_POST['categoria']) and $_POST['categoria'] != 'Geral') {
+        $query .= ' AND IMO_CATEGORIA = @categVAR';
+        $vars['@categVAR'] = $_POST['categoria'];
+    }
     if (!empty($_POST['nome'])) {
         $query .= ' AND (IMO_NOME LIKE @nomeVAR OR IMO_BAIRRO LIKE @nomeVAR)';
         $vars['@nomeVAR'] = '%' . $_POST['nome'] . '%';
@@ -19,6 +25,8 @@ try {
         $vars['@tipoVAR'] = $_POST['tipo'];
     }
     
+
+
     $con = new Connection('bdcrespo');
     $imoveis = $con->dbExec($query, $vars);
 

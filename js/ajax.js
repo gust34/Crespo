@@ -26,6 +26,8 @@ function stateChanged() {
     }
 }
 
+/*************************************************************************/
+
 function formChange() {
     if (xmlHttp.readyState == 1 || xmlHttp.readyState == 2 || xmlHttp.readyState == 3) {
         document.getElementById('loading').style.display = 'block';
@@ -126,6 +128,29 @@ function getImovelToChange(cod) {
         xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         xmlHttp.send('cod='+cod);
+    }
+}
+
+
+
+function updateCategoria() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById('imoveisSelecionados').innerHTML = xmlHttp.responseText;
+    }
+}
+function selectCategoria(categoria, pag) {
+    if (xmlHttp == null) {
+        alert("Desculpe, foram identificados problemas de execução relacionados ao seu navegador. Tente acessar com outro.");
+        return;
+    } else {
+        document.getElementById('txtCategoria').value = categoria;
+
+        var url = 'processos/select_categoria.php';
+        xmlHttp.onreadystatechange = updateCategoria;
+        xmlHttp.open('POST', url, true);
+        xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xmlHttp.send('cat='+categoria+'&pag='+pag);
     }
 }
 var xmlHttp = GetXmlHttpObject();
