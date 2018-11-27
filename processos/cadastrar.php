@@ -17,7 +17,7 @@ $imgName = null;
 /* upload da(s) imagem(s) */
 /* Validar tipo de imagem */
 foreach ($_FILES as $key => $file) {
-    if (preg_match('/foto*/', $key)) {
+    if (preg_match('/foto*/', $key) and !empty($file['name']) and $file['error'] == 0) {
         $type = explode('/', $file['type']);
         $type = end($type);
 
@@ -27,7 +27,9 @@ foreach ($_FILES as $key => $file) {
         }
 
         /* Renomear arquivo e movê-lo */
-        $imgName[$key] = time() . '.' . $type;
+        $randName = explode('/', $file['tmp_name']);
+
+        $imgName[$key] = end($randName) . time() . '.' . $type;
         $up = '_uploads/' . $imgName[$key];
 
         /* DEBUG */
@@ -73,7 +75,8 @@ if(!empty($_SESSION['Erro'])) {
 
     try {
         $con = new Connection('bdcrespo');
-        if (!$con->dbExec($query, $vars)) {
+        $success = $con->dbExec($query, $vars);
+        if (!$success) {
             $_SESSION['Erro'] = 'Ocorreu um erro interno, contate o suporte.';
             foreach ($imgName as $value) {
                 unlink('_uploads/' . $value);

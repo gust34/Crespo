@@ -297,12 +297,78 @@ require 'processos/load_imoveis.php';
                             </div>
                         </div>
 
-                        <div class="row justify-content-center mt-3 offset-md-2">
-                            <div class="col-sm-9 mt-3 pl-5">
-                                <h6  style="margin-left: 14%;">Enviar Imagem</h6>
+                        <h5 style="width: 100%; text-align: center; margin-top: 1em">Imagens</h5>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-6 mt-3 pl-5">
                                 <div class="col-sm-8 mt-3 pl-3">
-                                    <input type="file" name="foto0" id="#" class="#"  accept="image/png, image/jpeg" multiple required> 
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="122500"/>      
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto0" id="altFoto0" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto1" id="altFoto1" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto2" id="altFoto2" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto3" id="altFoto3" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto4" id="altFoto4" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto5" id="altFoto5" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto6" id="altFoto6" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto7" id="altFoto7" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto8" id="altFoto8" class="#"  accept="image/png, image/jpeg"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-3 pl-5">
+                                <div class="col-sm-8 mt-3 pl-3">
+                                    <img src="" class="oldPhoto">
+                                    <input type="file" name="foto9" id="altFoto9" class="#"  accept="image/png, image/jpeg"> 
                                 </div>
                             </div>
                         </div>

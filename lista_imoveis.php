@@ -69,7 +69,8 @@
                 <?php $i++; ?>
                 <a href="imovel.php?cod=<?=$imovel['IMO_COD']?>" class="item col-12 col-lg-4">
                     <div class="row align-items-center">
-                        <img src="img/casateste.jpg" class="col-6">
+                        <?php $imovel['IMO_FOTOS'] = unserialize($imovel['IMO_FOTOS']) ?>
+                        <img src="img/thumb.php?src=<?=__DIR__?>/processos/_uploads/<?=$imovel['IMO_FOTOS']['foto0']?>&size=300x200" class="col-6">
                         <div class="col-6 truncate">
                             <strong title="Nome"><?=$imovel['IMO_NOME']?></strong>
                             <p><?= $imovel['IMO_BAIRRO'] ?></p>
